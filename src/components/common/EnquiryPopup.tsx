@@ -15,12 +15,12 @@ interface EnquiryPopupProps {
 
 /**
  * EnquiryPopup — Global Automatic Luxury Consultation Modal.
- * Appears smoothly exactly 10 seconds after initial page load.
- * Persists dismissal to sessionStorage so visitors are never repeatedly interrupted.
+ * Appears smoothly exactly 10 seconds after page load.
+ * Dismissal is persisted in sessionStorage so visitors are not repeatedly interrupted.
  */
 export const EnquiryPopup: React.FC<EnquiryPopupProps> = ({ delayMs = 10000 }) => {
   const [isOpen, setIsOpen] = useState(false);
-  const [isRendered, setIsRendered] = useState(false);
+  const [isClosing, setIsClosing] = useState(false);
   const [fullName, setFullName] = useState('');
   const [phoneNumber, setPhoneNumber] = useState('');
   const [email, setEmail] = useState('');
@@ -35,13 +35,28 @@ export const EnquiryPopup: React.FC<EnquiryPopupProps> = ({ delayMs = 10000 }) =
 
   // 10-Second Lifecycle Timer
   useEffect(() => {
+    // Expose developer trigger helpers on window for instant testing
+    if (typeof window !== 'undefined') {
+      (window as any).__openEnquiryPopup = () => setIsOpen(true);
+      (window as any).__resetEnquiryPopup = () => {
+        try {
+          sessionStorage.removeItem(POPUP_DISMISSED_KEY);
+        } catch {}
+        setIsOpen(true);
+      };
+    }
+
+    // Check if dismissed in this browser session
     try {
       if (sessionStorage.getItem(POPUP_DISMISSED_KEY) === 'true') {
+        console.info('[Aranya The Park] Enquiry popup is suppressed because it was previously closed in this session. Open a new tab or run sessionStorage.clear() to re-enable.');
         return;
       }
     } catch {
-      // Handle private browsing or restricted storage gracefully
+      // Storage fallback
     }
+
+    console.info(`[Aranya The Park] Global enquiry popup scheduled to appear in ${delayMs / 1000}s...`);
 
     const timer = setTimeout(() => {
       try {
@@ -49,14 +64,11 @@ export const EnquiryPopup: React.FC<EnquiryPopupProps> = ({ delayMs = 10000 }) =
           return;
         }
       } catch {
-        // Continue
+        // Storage fallback
       }
 
-      setIsRendered(true);
-      // Smooth entrance transition frame
-      requestAnimationFrame(() => {
-        setIsOpen(true);
-      });
+      console.info('[Aranya The Park] 10s elapsed — opening enquiry popup.');
+      setIsOpen(true);
     }, delayMs);
 
     return () => {
@@ -66,22 +78,22 @@ export const EnquiryPopup: React.FC<EnquiryPopupProps> = ({ delayMs = 10000 }) =
 
   // Smooth Dismissal & Session Flag
   const handleClose = useCallback(() => {
+    setIsClosing(true);
     try {
       sessionStorage.setItem(POPUP_DISMISSED_KEY, 'true');
     } catch {
-      // Storage write fallback
+      // Storage fallback
     }
 
-    setIsOpen(false);
-    // Wait for exit transition to complete before unmounting
     setTimeout(() => {
-      setIsRendered(false);
-    }, 350);
+      setIsOpen(false);
+      setIsClosing(false);
+    }, 300);
   }, []);
 
   // Keyboard Navigation: ESC to close & Focus Trapping
   useEffect(() => {
-    if (!isRendered || !isOpen) return;
+    if (!isOpen) return;
 
     const handleKeyDown = (e: KeyboardEvent) => {
       if (e.key === 'Escape') {
@@ -115,28 +127,28 @@ export const EnquiryPopup: React.FC<EnquiryPopupProps> = ({ delayMs = 10000 }) =
 
     window.addEventListener('keydown', handleKeyDown);
     return () => window.removeEventListener('keydown', handleKeyDown);
-  }, [isRendered, isOpen, handleClose]);
+  }, [isOpen, handleClose]);
 
   // Lock Body Scroll when Modal is active
   useEffect(() => {
-    if (isRendered) {
+    if (isOpen) {
       const originalOverflow = document.body.style.overflow;
       document.body.style.overflow = 'hidden';
       return () => {
         document.body.style.overflow = originalOverflow;
       };
     }
-  }, [isRendered]);
+  }, [isOpen]);
 
   // Move focus to first input once open
   useEffect(() => {
-    if (isOpen && !isSubmitted) {
+    if (isOpen && !isSubmitted && !isClosing) {
       const focusTimer = setTimeout(() => {
         firstInputRef.current?.focus();
-      }, 150);
+      }, 200);
       return () => clearTimeout(focusTimer);
     }
-  }, [isOpen, isSubmitted]);
+  }, [isOpen, isSubmitted, isClosing]);
 
   // Form Submission Logic
   const handleSubmit = async (e: React.FormEvent) => {
@@ -170,19 +182,19 @@ export const EnquiryPopup: React.FC<EnquiryPopupProps> = ({ delayMs = 10000 }) =
     }
   };
 
-  if (!isRendered) return null;
+  if (!isOpen) return null;
 
   return (
     <div
-      className="fixed inset-0 z-50 flex items-center justify-center p-3.5 sm:p-6 overflow-x-hidden"
+      className="fixed inset-0 z-[100] flex items-center justify-center p-3.5 sm:p-6 overflow-x-hidden"
       role="dialog"
       aria-modal="true"
       aria-labelledby="enquiry-popup-title"
     >
-      {/* ─── Dark Translucent Backdrop with Subtle Blur ─── */}
+      {/* ─── Dark Translucent Backdrop with Blur ─── */}
       <div
-        className={`fixed inset-0 bg-dark-950/80 backdrop-blur-md transition-opacity duration-350 ease-out cursor-pointer ${
-          isOpen ? 'opacity-100' : 'opacity-0'
+        className={`fixed inset-0 bg-dark-950/85 backdrop-blur-md transition-opacity duration-300 cursor-pointer ${
+          isClosing ? 'opacity-0' : 'animate-fade-in'
         }`}
         onClick={handleClose}
         aria-hidden="true"
@@ -192,10 +204,8 @@ export const EnquiryPopup: React.FC<EnquiryPopupProps> = ({ delayMs = 10000 }) =
       <div
         ref={modalRef}
         onClick={(e) => e.stopPropagation()}
-        className={`relative w-full max-w-[520px] bg-dark-900/95 border border-white/[0.14] rounded-lg sm:rounded-xl shadow-[0_25px_80px_rgba(0,0,0,0.85)] max-h-[90vh] overflow-y-auto overflow-touch p-5 sm:p-8 z-10 transition-all duration-350 ease-out pb-safe ${
-          isOpen
-            ? 'opacity-100 scale-100 translate-y-0'
-            : 'opacity-0 scale-[0.97] translate-y-2.5'
+        className={`relative w-full max-w-[520px] bg-dark-900/95 border border-white/[0.14] rounded-lg sm:rounded-xl shadow-[0_25px_80px_rgba(0,0,0,0.85)] max-h-[90vh] overflow-y-auto overflow-touch p-5 sm:p-8 z-10 pb-safe transition-all duration-300 ${
+          isClosing ? 'opacity-0 scale-95 translate-y-2' : 'animate-scale-in'
         }`}
       >
         {/* ─── Close Button (×) ─── */}
