@@ -15,16 +15,19 @@ export const Hero: React.FC<HeroProps> = () => {
       {/* ─── Architectural Visual Canvas ─── */}
       <div className="absolute inset-0 z-0 overflow-hidden">
         <picture>
-          <source media="(max-width: 1023px)" srcSet="/assets/hero-elevation-mobile.png" />
+          <source
+            media="(max-width: 1023px)"
+            srcSet="/assets/hero-mobile-sunset.jpg"
+          />
           <img
             src="/assets/hero-elevation.png"
-            alt="Aranya The Park Architectural Elevation"
-            className="w-full h-full object-cover object-[8%_top] sm:object-center scale-[1.01] sm:scale-[1.03] transition-transform duration-1000 ease-out filter brightness-[0.80] sm:brightness-[0.82] lg:brightness-[0.48] contrast-[1.03] saturate-[1.05]"
+            alt="Aranya The Park — Malad West, Mumbai"
+            className="w-full h-full object-cover object-[55%_center] lg:object-center scale-[1.01] sm:scale-[1.02] lg:scale-[1.03] transition-transform duration-1000 ease-out filter brightness-[0.72] sm:brightness-[0.75] lg:brightness-[0.48] contrast-[1.04] saturate-[1.05]"
           />
         </picture>
-        {/* Soft luxury architectural vignette — warm twilight highlights */}
-        <div className="absolute inset-0 bg-gradient-to-t from-dark-950/85 via-dark-950/20 to-dark-950/35 lg:via-dark-950/40 lg:to-dark-950/60" />
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(8,9,8,0)_30%,rgba(8,9,8,0.45)_100%)]" />
+        {/* Soft luxury architectural vignette — balanced for mobile typography readability without crushing the sunset colors */}
+        <div className="absolute inset-0 bg-gradient-to-t from-dark-950/90 via-dark-950/35 to-dark-950/50 lg:from-dark-950/85 lg:via-dark-950/40 lg:to-dark-950/60" />
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(8,9,8,0.15)_20%,rgba(8,9,8,0.55)_100%)]" />
       </div>
 
       {/* ─── Top Spacer for Floating Glass Pill Navbar ─── */}
