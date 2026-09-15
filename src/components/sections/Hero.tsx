@@ -19,16 +19,16 @@ export const Hero: React.FC<HeroProps> = () => {
           <img
             src="/assets/hero-elevation.png"
             alt="Aranya The Park Architectural Elevation"
-            className="w-full h-full object-cover object-top sm:object-center scale-[1.02] sm:scale-[1.03] transition-transform duration-1000 ease-out filter brightness-[0.56] lg:brightness-[0.48] contrast-[1.05]"
+            className="w-full h-full object-cover object-[8%_top] sm:object-center scale-[1.01] sm:scale-[1.03] transition-transform duration-1000 ease-out filter brightness-[0.80] sm:brightness-[0.82] lg:brightness-[0.48] contrast-[1.03] saturate-[1.05]"
           />
         </picture>
-        {/* Soft luxury vignettes — charcoal depth */}
-        <div className="absolute inset-0 bg-gradient-to-t from-dark-950 via-dark-950/30 to-dark-950/50 lg:via-dark-950/40 lg:to-dark-950/60" />
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(8,9,8,0.1)_0%,rgba(8,9,8,0.7)_100%)]" />
+        {/* Soft luxury architectural vignette — warm twilight highlights */}
+        <div className="absolute inset-0 bg-gradient-to-t from-dark-950/85 via-dark-950/20 to-dark-950/35 lg:via-dark-950/40 lg:to-dark-950/60" />
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(8,9,8,0)_30%,rgba(8,9,8,0.45)_100%)]" />
       </div>
 
-      {/* ─── Top Spacer for Floating / Fixed Navbar ─── */}
-      <div className="relative z-10 pt-16 sm:pt-24 lg:pt-32" />
+      {/* ─── Top Spacer for Floating Glass Pill Navbar ─── */}
+      <div className="relative z-10 pt-20 sm:pt-24 lg:pt-32" />
 
       {/* ─── Center Cinematic Typography ─── */}
       <div className="relative z-10 my-auto py-4 sm:py-8">

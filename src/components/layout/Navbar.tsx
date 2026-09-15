@@ -72,20 +72,16 @@ export const Navbar: React.FC<NavbarProps> = ({
 
   return (
     <>
-      {/* ─── Modern Glass Luxury Navbar ─── */}
+      {/* ─── Floating Modern Glass Luxury Pill Navbar ─── */}
       <header
-        className={`fixed inset-x-0 z-50 transition-all duration-500 ease-out flex justify-center ${
-          isScrolled
-            ? 'top-0 lg:top-4 lg:px-6 bg-dark-950/85 lg:bg-transparent backdrop-blur-md lg:backdrop-blur-none border-b border-white/[0.08] lg:border-b-0 shadow-lg lg:shadow-none'
-            : 'top-0 px-0 bg-gradient-to-b from-dark-950/90 via-dark-950/30 to-transparent'
-        }`}
+        className="fixed inset-x-0 top-[max(0.75rem,env(safe-area-inset-top,0.75rem))] sm:top-4 z-50 flex justify-center px-3.5 sm:px-6 pointer-events-none"
         role="banner"
       >
         <div
-          className={`w-full transition-all duration-500 ease-out flex items-center justify-between ${
+          className={`pointer-events-auto w-full max-w-6xl rounded-full transition-all duration-500 ease-out flex items-center justify-between px-5 sm:px-8 py-2.5 sm:py-3 border ${
             isScrolled
-              ? 'px-5 sm:px-8 py-3.5 lg:py-3 lg:max-w-6xl lg:glass-navbar lg:rounded-full lg:shadow-[0_20px_40px_-10px_rgba(0,0,0,0.8)]'
-              : 'px-5 sm:px-8 py-4 sm:py-6 lg:py-8 max-w-7xl'
+              ? 'bg-dark-950/85 backdrop-blur-xl border-white/[0.12] shadow-[0_15px_35px_-5px_rgba(0,0,0,0.8)]'
+              : 'bg-dark-950/50 backdrop-blur-md border-white/[0.08] shadow-[0_10px_30px_rgba(0,0,0,0.35)]'
           }`}
         >
           {/* ─── Brandmark ─── */}
@@ -94,7 +90,7 @@ export const Navbar: React.FC<NavbarProps> = ({
             className="flex items-center gap-2 group select-none cursor-pointer"
             aria-label="Aranya The Park — Home"
           >
-            <span className="font-serif tracking-[0.28em] text-lg sm:text-xl text-ivory group-hover:text-champagne-300 transition-colors uppercase font-light">
+            <span className="font-serif tracking-[0.28em] text-base sm:text-xl text-ivory group-hover:text-champagne-300 transition-colors uppercase font-light">
               ARANYA
             </span>
           </a>
@@ -130,11 +126,11 @@ export const Navbar: React.FC<NavbarProps> = ({
           {/* ─── Mobile Menu Toggle ─── */}
           <button
             onClick={() => setIsMobileOpen(!isMobileOpen)}
-            className="lg:hidden p-2 text-ivory hover:text-champagne-300 transition-colors cursor-pointer min-w-[44px] min-h-[44px] flex items-center justify-center -mr-2"
+            className="lg:hidden p-2 text-ivory hover:text-champagne-300 transition-colors cursor-pointer min-w-[40px] min-h-[40px] flex items-center justify-center -mr-1"
             aria-label={isMobileOpen ? 'Close navigation menu' : 'Open navigation menu'}
             aria-expanded={isMobileOpen}
           >
-            {isMobileOpen ? <X size={22} strokeWidth={1.5} /> : <Menu size={22} strokeWidth={1.5} />}
+            {isMobileOpen ? <X size={20} strokeWidth={1.5} /> : <Menu size={20} strokeWidth={1.5} />}
           </button>
         </div>
       </header>

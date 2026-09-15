@@ -79,11 +79,11 @@ export const FloorPlans: React.FC<FloorPlansProps> = ({
         </div>
 
         {/* ─── Primary Tower Selector (Modern Glass Pill) ─── */}
-        <div className="flex justify-center mb-6">
-          <div className="inline-flex p-1.5 glass-panel rounded-full max-w-md w-full justify-between gap-1.5">
+        <div className="flex justify-center mb-6 px-4">
+          <div className="inline-flex p-1 sm:p-1.5 glass-panel rounded-full max-w-md w-full justify-between gap-1 sm:gap-1.5">
             <button
               onClick={() => handleTowerChange('tower-a')}
-              className={`flex-1 py-2.5 px-4 text-center font-sans text-xs uppercase tracking-[0.18em] font-semibold transition-all duration-300 cursor-pointer rounded-full ${
+              className={`flex-1 py-2 sm:py-2.5 px-2 sm:px-4 text-center font-sans text-[11px] sm:text-xs uppercase tracking-[0.12em] sm:tracking-[0.18em] font-semibold transition-all duration-300 cursor-pointer rounded-full ${
                 selectedTower === 'tower-a'
                   ? 'bg-champagne-400 text-dark-950 font-bold shadow-md'
                   : 'text-ivory-muted hover:text-ivory'
@@ -93,7 +93,7 @@ export const FloorPlans: React.FC<FloorPlansProps> = ({
             </button>
             <button
               onClick={() => handleTowerChange('tower-b')}
-              className={`flex-1 py-2.5 px-4 text-center font-sans text-xs uppercase tracking-[0.18em] font-semibold transition-all duration-300 cursor-pointer rounded-full ${
+              className={`flex-1 py-2 sm:py-2.5 px-2 sm:px-4 text-center font-sans text-[11px] sm:text-xs uppercase tracking-[0.12em] sm:tracking-[0.18em] font-semibold transition-all duration-300 cursor-pointer rounded-full ${
                 selectedTower === 'tower-b'
                   ? 'bg-champagne-400 text-dark-950 font-bold shadow-md'
                   : 'text-ivory-muted hover:text-ivory'
@@ -103,7 +103,7 @@ export const FloorPlans: React.FC<FloorPlansProps> = ({
             </button>
             <button
               onClick={() => handleTowerChange('master')}
-              className={`flex-1 py-2.5 px-4 text-center font-sans text-xs uppercase tracking-[0.18em] font-semibold transition-all duration-300 cursor-pointer rounded-full ${
+              className={`flex-1 py-2 sm:py-2.5 px-2 sm:px-4 text-center font-sans text-[11px] sm:text-xs uppercase tracking-[0.12em] sm:tracking-[0.18em] font-semibold transition-all duration-300 cursor-pointer rounded-full ${
                 selectedTower === 'master'
                   ? 'bg-champagne-400 text-dark-950 font-bold shadow-md'
                   : 'text-ivory-muted hover:text-ivory'
@@ -115,7 +115,7 @@ export const FloorPlans: React.FC<FloorPlansProps> = ({
         </div>
 
         {/* ─── Contextual Sub-Floor Selector ─── */}
-        <div className="flex items-center justify-center gap-2 overflow-x-auto pb-4 mb-8">
+        <div className="flex items-center justify-start sm:justify-center gap-2 overflow-x-auto overflow-touch pb-3 mb-8 px-4 sm:px-0">
           {towerPlans.map((plan) => {
             const isActive = plan.id === currentPlan.id;
             return (
@@ -125,13 +125,13 @@ export const FloorPlans: React.FC<FloorPlansProps> = ({
                   setActivePlanId(plan.id);
                   setZoomLevel(1);
                 }}
-                className={`px-4 py-2 text-[11px] font-sans uppercase tracking-[0.14em] rounded-full transition-all duration-300 cursor-pointer ${
+                className={`px-3.5 sm:px-4 py-2 text-[11px] font-sans uppercase tracking-[0.12em] whitespace-nowrap shrink-0 rounded-full transition-all duration-300 cursor-pointer ${
                   isActive
-                    ? 'border border-champagne-400/50 bg-champagne-400/10 text-champagne-300 font-semibold'
-                    : 'text-ivory-muted/70 hover:text-ivory hover:bg-white/[0.03]'
+                    ? 'border border-champagne-400/80 bg-champagne-400/20 text-champagne-300 font-semibold shadow-sm'
+                    : 'text-ivory-muted/80 hover:text-ivory bg-white/[0.03] border border-white/[0.06] hover:border-white/[0.12]'
                 }`}
               >
-                {plan.subtitle || plan.title}
+                {plan.floorLabel}
               </button>
             );
           })}
