@@ -17,13 +17,21 @@ export const Footer: React.FC<FooterProps> = ({
       <Container>
         {/* Editorial Brand Statement Header */}
         <div className="pb-14 border-b border-white/[0.08] flex flex-col md:flex-row md:items-end justify-between gap-6">
-          <div>
-            <span className="font-serif tracking-[0.25em] text-2xl sm:text-3xl text-ivory font-light block">
-              ARANYA
-            </span>
-            <span className="text-[10px] tracking-[0.35em] uppercase text-champagne-300 font-medium block mt-1">
-              THE PARK · THE LUSHURY LIFE · MALAD WEST
-            </span>
+          <div className="flex items-center gap-4">
+            <img
+              src="/assets/branding/aranya-crest.png"
+              alt="Aranya Logo"
+              className="h-12 w-12 object-contain shrink-0"
+              loading="lazy"
+            />
+            <div>
+              <span className="font-serif tracking-[0.22em] text-2xl sm:text-3xl text-ivory font-light block">
+                ARANYA THE PARK
+              </span>
+              <span className="text-[10px] tracking-[0.35em] uppercase text-champagne-300 font-medium block mt-1">
+                THE LUSHURY LIFE · MALAD WEST
+              </span>
+            </div>
           </div>
           <p className="font-serif text-lg sm:text-xl text-ivory/80 italic font-light max-w-md">
             "A parkside residence crafted for those who value volume, tranquility, and refined distinction."

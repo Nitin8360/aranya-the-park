@@ -84,15 +84,26 @@ export const Navbar: React.FC<NavbarProps> = ({
               : 'bg-dark-950/50 backdrop-blur-md border-white/[0.08] shadow-[0_10px_30px_rgba(0,0,0,0.35)]'
           }`}
         >
-          {/* ─── Brandmark ─── */}
+          {/* ─── Brandmark Lockup: [ ARANYA LOGO ] ARANYA THE PARK ─── */}
           <a
             href="#"
-            className="flex items-center gap-2 group select-none cursor-pointer"
+            className="flex items-center gap-2.5 sm:gap-3 group select-none cursor-pointer"
             aria-label="Aranya The Park — Home"
           >
-            <span className="font-serif tracking-[0.28em] text-base sm:text-xl text-ivory group-hover:text-champagne-300 transition-colors uppercase font-light">
-              ARANYA
-            </span>
+            <img
+              src="/assets/branding/aranya-crest.png"
+              alt="Aranya Logo"
+              className="h-7 w-7 sm:h-8 sm:w-8 object-contain transition-transform duration-300 group-hover:scale-105 shrink-0"
+              loading="eager"
+            />
+            <div className="flex items-baseline gap-1.5 whitespace-nowrap">
+              <span className="font-serif tracking-[0.22em] text-sm sm:text-base text-ivory group-hover:text-champagne-300 transition-colors uppercase font-light">
+                ARANYA
+              </span>
+              <span className="font-serif tracking-[0.24em] text-[11px] sm:text-xs text-champagne-300/90 font-light uppercase hidden min-[360px]:inline">
+                THE PARK
+              </span>
+            </div>
           </a>
 
           {/* ─── Desktop Navigation Links ─── */}
@@ -150,13 +161,20 @@ export const Navbar: React.FC<NavbarProps> = ({
 
         {/* Top Header Bar inside Drawer */}
         <div className="relative z-20 flex items-center justify-between px-6 pt-[max(1.25rem,env(safe-area-inset-top,0px))] pb-4 border-b border-white/[0.08]">
-          <div className="flex flex-col">
-            <span className="font-serif tracking-[0.26em] text-xl text-ivory uppercase font-light">
-              ARANYA
-            </span>
-            <span className="text-[9px] font-sans font-medium tracking-[0.35em] uppercase text-champagne-400/90 -mt-0.5">
-              THE PARK · THE LUSHURY LIFE
-            </span>
+          <div className="flex items-center gap-3">
+            <img
+              src="/assets/branding/aranya-crest.png"
+              alt="Aranya Logo"
+              className="h-9 w-9 object-contain shrink-0"
+            />
+            <div className="flex flex-col">
+              <span className="font-serif tracking-[0.22em] text-lg text-ivory uppercase font-light">
+                ARANYA THE PARK
+              </span>
+              <span className="text-[9px] font-sans font-medium tracking-[0.35em] uppercase text-champagne-400/90 -mt-0.5">
+                THE LUSHURY LIFE · MALAD WEST
+              </span>
+            </div>
           </div>
 
           <button

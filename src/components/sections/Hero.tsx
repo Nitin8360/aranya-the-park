@@ -60,10 +60,10 @@ export const Hero: React.FC<HeroProps> = () => {
           {/* CTAs */}
           <div className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-6 hero-animate-cta">
             <a
-              href="#story-arrival"
+              href="#enquiry"
               className="w-full sm:w-auto px-8 sm:px-10 py-3.5 sm:py-4 text-[11px] sm:text-xs font-sans font-semibold uppercase tracking-[0.22em] bg-champagne-400 hover:bg-champagne-300 text-dark-950 rounded-full transition-all duration-300 shadow-[0_8px_30px_rgba(200,169,107,0.25)] hover:shadow-[0_10px_35px_rgba(200,169,107,0.4)] cursor-pointer select-none text-center"
             >
-              EXPLORE THE STORY
+              ENQUIRE NOW
             </a>
             <a
               href="#residences"
