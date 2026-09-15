@@ -72,21 +72,21 @@ export const Navbar: React.FC<NavbarProps> = ({
 
   return (
     <>
-      {/* ─── Floating Modern Glass Luxury Navbar ─── */}
+      {/* ─── Modern Glass Luxury Navbar ─── */}
       <header
-        className={`fixed left-0 right-0 z-50 transition-all duration-500 ease-out flex justify-center ${
+        className={`fixed inset-x-0 z-50 transition-all duration-500 ease-out flex justify-center ${
           isScrolled
-            ? 'top-3 sm:top-4 px-4 sm:px-6'
-            : 'top-0 px-0 py-6 sm:py-8 bg-gradient-to-b from-dark-950/80 via-dark-950/20 to-transparent'
+            ? 'top-0 lg:top-4 lg:px-6 bg-dark-950/85 lg:bg-transparent backdrop-blur-md lg:backdrop-blur-none border-b border-white/[0.08] lg:border-b-0 shadow-lg lg:shadow-none'
+            : 'top-0 px-0 bg-gradient-to-b from-dark-950/90 via-dark-950/30 to-transparent'
         }`}
         role="banner"
       >
         <div
-          className={`w-full transition-all duration-500 ease-out ${
+          className={`w-full transition-all duration-500 ease-out flex items-center justify-between ${
             isScrolled
-              ? 'max-w-6xl glass-navbar rounded-full px-6 sm:px-8 py-2.5 sm:py-3 shadow-[0_20px_40px_-10px_rgba(0,0,0,0.8)]'
-              : 'max-w-7xl px-6 sm:px-8'
-          } flex items-center justify-between`}
+              ? 'px-5 sm:px-8 py-3.5 lg:py-3 lg:max-w-6xl lg:glass-navbar lg:rounded-full lg:shadow-[0_20px_40px_-10px_rgba(0,0,0,0.8)]'
+              : 'px-5 sm:px-8 py-4 sm:py-6 lg:py-8 max-w-7xl'
+          }`}
         >
           {/* ─── Brandmark ─── */}
           <a
@@ -130,11 +130,11 @@ export const Navbar: React.FC<NavbarProps> = ({
           {/* ─── Mobile Menu Toggle ─── */}
           <button
             onClick={() => setIsMobileOpen(!isMobileOpen)}
-            className="lg:hidden p-2 text-ivory hover:text-champagne-300 transition-colors cursor-pointer min-w-[40px] min-h-[40px] flex items-center justify-center"
+            className="lg:hidden p-2 text-ivory hover:text-champagne-300 transition-colors cursor-pointer min-w-[44px] min-h-[44px] flex items-center justify-center -mr-2"
             aria-label={isMobileOpen ? 'Close navigation menu' : 'Open navigation menu'}
             aria-expanded={isMobileOpen}
           >
-            {isMobileOpen ? <X size={20} strokeWidth={1.5} /> : <Menu size={20} strokeWidth={1.5} />}
+            {isMobileOpen ? <X size={22} strokeWidth={1.5} /> : <Menu size={22} strokeWidth={1.5} />}
           </button>
         </div>
       </header>
@@ -153,50 +153,59 @@ export const Navbar: React.FC<NavbarProps> = ({
         />
 
         {/* Top Header Bar inside Drawer */}
-        <div className="relative z-20 flex items-center justify-between px-6 py-5 border-b border-white/[0.06]">
+        <div className="relative z-20 flex items-center justify-between px-6 pt-[max(1.25rem,env(safe-area-inset-top,0px))] pb-4 border-b border-white/[0.08]">
           <div className="flex flex-col">
-            <span className="font-serif tracking-[0.24em] text-xl text-ivory uppercase font-light">
+            <span className="font-serif tracking-[0.26em] text-xl text-ivory uppercase font-light">
               ARANYA
             </span>
-            <span className="text-[9px] font-sans font-medium tracking-[0.35em] uppercase text-champagne-400/80 -mt-0.5">
+            <span className="text-[9px] font-sans font-medium tracking-[0.35em] uppercase text-champagne-400/90 -mt-0.5">
               THE PARK · THE LUSHURY LIFE
             </span>
           </div>
 
           <button
             onClick={closeMobile}
-            className="p-2 text-ivory-muted hover:text-ivory transition-colors min-w-[40px] min-h-[40px] flex items-center justify-center cursor-pointer"
+            className="p-2 text-ivory-muted hover:text-ivory transition-colors min-w-[44px] min-h-[44px] flex items-center justify-center cursor-pointer -mr-2"
             aria-label="Close menu"
           >
-            <X size={20} strokeWidth={1.5} />
+            <X size={22} strokeWidth={1.5} />
           </button>
         </div>
 
-        {/* Menu Items with Generous Spacing */}
-        <div className="relative z-10 flex flex-col justify-between h-[calc(100%-80px)] px-8 py-10 overflow-y-auto overflow-touch">
-          <nav className="flex flex-col space-y-7 pt-4">
-            {NAV_LINKS.map((link) => (
+        {/* Menu Items with Generous Spacing & Touch Targets */}
+        <div className="relative z-10 flex flex-col justify-between h-[calc(100%-80px)] px-7 py-8 overflow-y-auto overflow-touch pb-safe">
+          <nav className="flex flex-col space-y-3 pt-2">
+            {NAV_LINKS.map((link, idx) => (
               <a
                 key={link.label}
                 href={link.href}
                 onClick={(e) => handleNavLinkClick(e, link.label, true)}
-                className="font-serif text-2xl sm:text-3xl text-ivory/90 hover:text-champagne-300 tracking-[0.12em] transition-colors uppercase font-light"
+                style={{ transitionDelay: `${idx * 40}ms` }}
+                className="group flex items-center justify-between py-3.5 px-2 min-h-[48px] rounded-[4px] font-serif text-2xl sm:text-3xl text-ivory/90 hover:text-champagne-300 tracking-[0.12em] transition-all uppercase font-light active:bg-white/[0.03]"
               >
-                {link.label}
+                <span>{link.label}</span>
+                <span className="text-xs font-sans text-champagne-400/40 group-hover:text-champagne-300 group-hover:translate-x-1 transition-all">
+                  0{idx + 1}
+                </span>
               </a>
             ))}
           </nav>
 
-          <div className="pt-8 pb-4 space-y-4">
+          <div className="pt-8 pb-4 space-y-3">
             <button
               onClick={() => {
                 closeMobile();
                 if (onOpenLeadModal) onOpenLeadModal('Mobile Navigation Inquiry');
               }}
-              className="w-full py-4 text-xs font-sans font-semibold tracking-[0.2em] uppercase text-dark-950 bg-champagne-400 hover:bg-champagne-300 rounded-full transition-all duration-300 cursor-pointer text-center"
+              className="w-full py-4 min-h-[52px] text-xs font-sans font-semibold tracking-[0.2em] uppercase text-dark-950 bg-champagne-400 hover:bg-champagne-300 active:scale-[0.99] rounded-full transition-all duration-300 cursor-pointer text-center shadow-[0_8px_25px_rgba(200,169,107,0.3)]"
             >
               ENQUIRE NOW
             </button>
+            <div className="text-center">
+              <span className="text-[10px] font-sans uppercase tracking-[0.3em] text-ivory-muted/50">
+                MALAD WEST · MUMBAI
+              </span>
+            </div>
           </div>
         </div>
       </div>

@@ -415,6 +415,34 @@
   animation: slideDown 0.35s ease both;
 }
 
+/* Hero Cinematic Entrance Sequence */
+@keyframes heroEntrance {
+  0% {
+    opacity: 0;
+    transform: translateY(22px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.hero-animate-eyebrow {
+  animation: heroEntrance 0.7s cubic-bezier(0.16, 1, 0.3, 1) 0.4s both;
+}
+.hero-animate-title {
+  animation: heroEntrance 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.65s both;
+}
+.hero-animate-subtitle {
+  animation: heroEntrance 0.7s cubic-bezier(0.16, 1, 0.3, 1) 0.85s both;
+}
+.hero-animate-cta {
+  animation: heroEntrance 0.7s cubic-bezier(0.16, 1, 0.3, 1) 1.05s both;
+}
+.hero-animate-cue {
+  animation: heroEntrance 0.6s cubic-bezier(0.16, 1, 0.3, 1) 1.25s both;
+}
+
 /* Scroll reveal utility — hidden by default, revealed when .revealed is added */
 .reveal {
   opacity: 0;
