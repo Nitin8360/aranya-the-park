@@ -1,0 +1,78 @@
+import type { ProjectInfo } from '../types';
+
+export const projectData: ProjectInfo = {
+  name: 'Aranya The Park',
+  tagline: 'A Serene Metropolitan Address',
+  positioning: 'The Lushury Life',
+  location: 'Malad West, Mumbai',
+  city: 'Mumbai',
+  address: 'CTS 1069A/1/A/3, off New Link Road, Ram Nagar, Behind Evershine Mall, Mindspace, Malad West, Mumbai - 400064',
+  mahaRera: 'P51800011594',
+  reraUrl: 'https://maharera.mahaonline.gov.in',
+  phone: '+91 976 976 6500',
+  phoneRaw: 'tel:+919769766500',
+  emailPlaceholder: 'sales@aranyathepark.com',
+  developer: 'Anuradha Real Estate Developers Private Limited',
+  jointVenture: 'Zaveri Realty & BKM Mindspace',
+  architect: 'Plan Arch Associates',
+  landscapeArchitect: 'BeyondGreen',
+  interiorDesigner: 'Kalpesh Makwana Design Studio',
+  rccConsultant: 'RD Consultants',
+  legalAdvisor: 'Shankar Consultant',
+  stats: [
+    { label: 'Open Green Living', value: '40%+', subtext: 'Curated Biophilic Enclaves' },
+    { label: 'Ceiling Height', value: 'Up to 11 Ft.', subtext: 'Palatial Vertical Proportions' },
+    { label: 'Direct Access Road', value: '18.3 Mtr.', subtext: 'Connecting directly to New Link Road' },
+    { label: 'Transit Access', value: '3 Mins', subtext: 'To Malad West Metro Station' },
+  ],
+  hallmarks: [
+    {
+      id: 'homes',
+      title: '2, 3 & 4 BHK Residences',
+      description: 'Expansive living spaces with private sundecks, up to 11 ft floor-to-ceiling height, and Vastu-compliant layouts.',
+      icon: 'Home',
+    },
+    {
+      id: 'banquet',
+      title: '150-Guest Banquet Hall',
+      description: 'Magnificent banquet venue complete with stage area, green rooms, pantry, and mini-banquet space for memorable celebrations.',
+      icon: 'GlassWater',
+    },
+    {
+      id: 'parking',
+      title: 'Automated Tower Parking',
+      description: 'Intelligent high-tech automatic tower parking system ensuring effortless vehicle retrieval and multi-bay EV charging.',
+      icon: 'Car',
+    },
+    {
+      id: 'access',
+      title: '18.3m Wide Access Boulevard',
+      description: 'Wide private approach avenue offering seamless, jam-free ingress and egress directly to New Link Road.',
+      icon: 'Compass',
+    },
+    {
+      id: 'lobby',
+      title: 'Double-Height AC Lobbies',
+      description: 'Regal arrival experience designed by Kalpesh Makwana Design Studio with Italian marble finishes and concierge desk.',
+      icon: 'DoorClosed',
+    },
+    {
+      id: 'skyline-lounge',
+      title: 'Skyline Coffee & Library Lounge',
+      description: 'Panoramic rooftop reading sanctuary, quiet co-working nook, and relaxation deck high above the urban hum.',
+      icon: 'Coffee',
+    },
+    {
+      id: 'grohe',
+      title: 'Exquisite Grohe Fittings',
+      description: 'Premium Grohe fittings in all bathrooms, elegant glass railings, French windows, and designer vitrified flooring.',
+      icon: 'Sparkles',
+    },
+    {
+      id: 'recreation',
+      title: 'Dual-Level Amenities',
+      description: 'Regulation pickleball court, state-of-the-art gym, rooftop yoga lawn, aroma garden, and reflexology trails.',
+      icon: 'Trophy',
+    },
+  ],
+};

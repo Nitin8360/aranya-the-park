@@ -1,0 +1,572 @@
+@import "tailwindcss";
+
+/* ================================================================
+   ARANYA THE PARK — DESIGN SYSTEM v2.0
+   ================================================================
+   An editorial luxury design system inspired by architectural
+   coffee-table monographs: generous whitespace, restrained
+   typography, and progressive content disclosure.
+   ================================================================ */
+
+/* ----------------------------------------------------------------
+   1. THEME TOKENS — COLOR PALETTE
+   ---------------------------------------------------------------- */
+@theme {
+  /* — Dark Luxury Palette (Near-Black & Charcoal Base) — */
+  --color-dark-950: #080908;
+  --color-dark-900: #0D0D0C;
+  --color-dark-850: #121211;
+  --color-dark-800: #171715;
+  --color-dark-750: #1C1B18;
+  --color-dark-700: #23221E;
+  --color-dark-600: #33312B;
+
+  /* — Backward-compatible semantic aliases mapped to Dark Luxury — */
+  --color-forest-950: #080908;
+  --color-forest-900: #0D0D0C;
+  --color-forest-850: #121211;
+  --color-forest-800: #0D0D0C;
+  --color-forest-700: #171715;
+  --color-forest-600: #1C1B18;
+  --color-forest-500: #2A2823;
+  --color-forest-400: #3D3A33;
+
+  /* — Warm Ivory / Cream Text — */
+  --color-ivory: #F4F0E8;
+  --color-ivory-light: #FAF8F5;
+  --color-ivory-muted: #B9B3A8;
+  --color-ivory-subtle: #7E7970;
+
+  --color-cream-50: #FAF8F5;
+  --color-cream-100: #F4F0E8;
+  --color-cream-200: #EAE4D8;
+  --color-cream-300: #B9B3A8;
+  --color-cream-400: #8C8478;
+
+  /* — Champagne Gold (Restrained, Editorial) — */
+  --color-champagne-200: #EADBBA;
+  --color-champagne-300: #D8BD8C;
+  --color-champagne-400: #C8A96B;
+  --color-champagne-500: #A88B50;
+  --color-champagne-600: #8A6F38;
+
+  /* — Bronze / Warm Taupe Supporting Accents — */
+  --color-bronze: #8C7A5E;
+  --color-warm-950: #080908;
+  --color-warm-900: #0D0D0C;
+  --color-warm-800: #121211;
+  --color-warm-700: #171715;
+  --color-warm-600: #1C1B18;
+
+  /* — Neutral Supporting Tones — */
+  --color-stone-900: #121211;
+  --color-stone-800: #1C1B18;
+  --color-stone-700: #2D2B26;
+  --color-stone-600: #424039;
+  --color-stone-500: #6B675E;
+  --color-stone-400: #8F8A7F;
+  --color-stone-300: #B9B3A8;
+  --color-stone-200: #D5D0C6;
+
+  /* — Typography Scale — */
+  --font-serif: "Cormorant Garamond", "Georgia", serif;
+  --font-display: "Cinzel", "Georgia", serif;
+  --font-sans: "Plus Jakarta Sans", system-ui, -apple-system, sans-serif;
+
+  /* — Standardized Section Spacing — */
+  --spacing-section: 7.5rem;
+  --spacing-section-lg: 10rem;
+
+  /* — Container Max Widths — */
+  --container-sm: 640px;
+  --container-md: 768px;
+  --container-lg: 1024px;
+  --container-xl: 1152px;
+  --container-2xl: 1320px;
+  --container-3xl: 48rem;
+  --container-4xl: 56rem;
+  --container-5xl: 64rem;
+  --container-6xl: 72rem;
+  --container-7xl: 80rem;
+}
+
+@layer utilities {
+  .mx-auto {
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .text-center {
+    text-align: center;
+  }
+
+  /* — Modern Glass UI System — */
+  .glass-panel {
+    background: rgba(255, 255, 255, 0.04);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+  }
+
+  .glass-panel-subtle {
+    background: rgba(255, 255, 255, 0.025);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+  }
+
+  .glass-control {
+    background: rgba(255, 255, 255, 0.03);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    transition: all 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
+  }
+
+  .glass-control:hover,
+  .glass-control.active {
+    background: rgba(200, 169, 107, 0.08);
+    border-color: rgba(200, 169, 107, 0.35);
+  }
+
+  .glass-navbar {
+    background: rgba(8, 9, 8, 0.72);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.07);
+  }
+
+  .glass-action-bar {
+    background: rgba(13, 13, 12, 0.82);
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+    border: 1px solid rgba(255, 255, 255, 0.09);
+    box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.7);
+  }
+}
+
+/* ----------------------------------------------------------------
+   2. BASE RESETS & GLOBAL STYLES
+   ---------------------------------------------------------------- */
+@layer base {
+  html {
+    font-size: 16px;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+    scroll-behavior: smooth;
+  }
+
+  body {
+    font-family: var(--font-sans);
+    background-color: var(--color-dark-950);
+    color: var(--color-ivory);
+    line-height: 1.6;
+    overflow-x: hidden;
+  }
+
+  ::selection {
+    background-color: var(--color-champagne-400);
+    color: var(--color-dark-950);
+  }
+
+  img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  button {
+    font-family: inherit;
+  }
+}
+
+/* ----------------------------------------------------------------
+   3. TYPOGRAPHY UTILITIES
+   ---------------------------------------------------------------- */
+.font-display {
+  font-family: var(--font-display);
+}
+
+.font-serif {
+  font-family: var(--font-serif);
+}
+
+.font-sans {
+  font-family: var(--font-sans);
+}
+
+/* Editorial display heading — hero/chapter titles with fluid clamp */
+.heading-display {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: clamp(2rem, 4.5vw + 1rem, 4.5rem);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  line-height: 1.05;
+}
+
+/* Serif editorial heading — section titles with fluid clamp */
+.heading-serif {
+  font-family: var(--font-serif);
+  font-weight: 300;
+  font-size: clamp(1.75rem, 2.8vw + 0.8rem, 3.25rem);
+  letter-spacing: 0.01em;
+  line-height: 1.15;
+}
+
+/* Sub-serif editorial heading */
+.heading-sub {
+  font-family: var(--font-serif);
+  font-weight: 400;
+  font-size: clamp(1.25rem, 1.5vw + 0.75rem, 1.875rem);
+  line-height: 1.25;
+}
+
+/* Eyebrow label — small uppercase accent text */
+.eyebrow {
+  font-family: var(--font-sans);
+  font-size: clamp(0.625rem, 0.35vw + 0.5rem, 0.6875rem);
+  font-weight: 600;
+  letter-spacing: clamp(0.18em, 0.5vw + 0.1em, 0.28em);
+  text-transform: uppercase;
+  color: var(--color-champagne-400);
+}
+
+/* Body prose — editorial reading text */
+.prose-editorial {
+  font-family: var(--font-sans);
+  font-size: clamp(0.875rem, 0.2vw + 0.8rem, 1rem);
+  font-weight: 300;
+  line-height: 1.8;
+  color: var(--color-cream-300);
+}
+
+/* Small detail text — captions, disclaimers, labels */
+.text-detail {
+  font-family: var(--font-sans);
+  font-size: 0.6875rem;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+/* ----------------------------------------------------------------
+   4. SECTION SPACING UTILITY
+   ---------------------------------------------------------------- */
+.section-spacing {
+  padding-top: var(--spacing-section);
+  padding-bottom: var(--spacing-section);
+}
+
+@media (min-width: 1024px) {
+  .section-spacing {
+    padding-top: var(--spacing-section-lg);
+    padding-bottom: var(--spacing-section-lg);
+  }
+}
+
+/* ----------------------------------------------------------------
+   5. SOFT DIVIDERS (replaces excessive borders)
+   ---------------------------------------------------------------- */
+.divider-soft {
+  height: 1px;
+  background: linear-gradient(
+    to right,
+    transparent,
+    rgba(197, 168, 128, 0.15),
+    rgba(197, 168, 128, 0.2),
+    rgba(197, 168, 128, 0.15),
+    transparent
+  );
+  border: none;
+}
+
+.divider-soft-v {
+  width: 1px;
+  background: linear-gradient(
+    to bottom,
+    transparent,
+    rgba(197, 168, 128, 0.15),
+    rgba(197, 168, 128, 0.2),
+    rgba(197, 168, 128, 0.15),
+    transparent
+  );
+}
+
+/* ----------------------------------------------------------------
+   6. BORDER TREATMENTS (refined — fewer, softer)
+   ---------------------------------------------------------------- */
+.border-gold {
+  border-color: rgba(197, 168, 128, 0.15);
+}
+
+.border-gold-strong {
+  border-color: rgba(197, 168, 128, 0.35);
+}
+
+.border-forest {
+  border-color: rgba(27, 59, 46, 0.4);
+}
+
+/* ----------------------------------------------------------------
+   7. CUSTOM SCROLLBAR
+   ---------------------------------------------------------------- */
+::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-forest-900);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-forest-600);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-champagne-400);
+}
+
+/* Firefox */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--color-forest-600) var(--color-forest-900);
+}
+
+/* ----------------------------------------------------------------
+   8. ANIMATION KEYFRAMES
+   ---------------------------------------------------------------- */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(28px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.96);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes shimmer {
+  0% { background-position: -200% center; }
+  100% { background-position: 200% center; }
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Scroll-triggered reveal animation */
+@keyframes revealUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Utility animation classes */
+.animate-fade-in-up {
+  animation: fadeInUp 0.7s cubic-bezier(0.25, 0.1, 0.25, 1) both;
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.5s ease both;
+}
+
+.animate-scale-in {
+  animation: scaleIn 0.3s ease both;
+}
+
+.animate-slide-down {
+  animation: slideDown 0.35s ease both;
+}
+
+/* Scroll reveal utility — hidden by default, revealed when .revealed is added */
+.reveal {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.8s cubic-bezier(0.25, 0.1, 0.25, 1),
+              transform 0.8s cubic-bezier(0.25, 0.1, 0.25, 1);
+}
+
+.reveal.revealed {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Stagger delays */
+.delay-100 { animation-delay: 100ms; }
+.delay-200 { animation-delay: 200ms; }
+.delay-300 { animation-delay: 300ms; }
+.delay-400 { animation-delay: 400ms; }
+.delay-500 { animation-delay: 500ms; }
+
+.reveal-delay-1 { transition-delay: 100ms; }
+.reveal-delay-2 { transition-delay: 200ms; }
+.reveal-delay-3 { transition-delay: 300ms; }
+.reveal-delay-4 { transition-delay: 400ms; }
+
+/* ----------------------------------------------------------------
+   9. FOCUS & ACCESSIBILITY
+   ---------------------------------------------------------------- */
+:focus-visible {
+  outline: 2px solid var(--color-champagne-400);
+  outline-offset: 2px;
+}
+
+/* ----------------------------------------------------------------
+   10. FORM CONTROL BASE
+   ---------------------------------------------------------------- */
+.input-luxury {
+  width: 100%;
+  background-color: rgba(7, 21, 16, 0.6);
+  border: 1px solid rgba(197, 168, 128, 0.15);
+  border-radius: 4px;
+  padding: 0.875rem 1.125rem;
+  font-family: var(--font-sans);
+  font-size: 0.875rem;
+  color: var(--color-cream-100);
+  transition: border-color 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+}
+
+.input-luxury::placeholder {
+  color: var(--color-stone-500);
+  font-weight: 300;
+}
+
+.input-luxury:focus {
+  outline: none;
+  border-color: var(--color-champagne-400);
+  background-color: rgba(7, 21, 16, 0.8);
+  box-shadow: 0 0 0 3px rgba(197, 168, 128, 0.1);
+}
+
+/* Prevent unwanted iOS Safari auto-zoom on input focus */
+@media screen and (max-width: 768px) {
+  input[type="text"],
+  input[type="tel"],
+  input[type="email"],
+  textarea,
+  select {
+    font-size: 16px !important;
+  }
+}
+
+.input-luxury-label {
+  display: block;
+  font-family: var(--font-sans);
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-champagne-300);
+  margin-bottom: 0.5rem;
+}
+
+/* ----------------------------------------------------------------
+   11. SECTION SURFACE VARIANTS
+   ---------------------------------------------------------------- */
+.surface-dark {
+  background-color: var(--color-forest-800);
+  color: var(--color-cream-100);
+}
+
+.surface-darker {
+  background-color: var(--color-forest-900);
+  color: var(--color-cream-100);
+}
+
+.surface-deepest {
+  background-color: var(--color-forest-950);
+  color: var(--color-cream-100);
+}
+
+.surface-warm {
+  background-color: var(--color-warm-900);
+  color: var(--color-cream-100);
+}
+
+.surface-light {
+  background-color: var(--color-cream-100);
+  color: var(--color-stone-900);
+}
+
+.surface-cream {
+  background-color: var(--color-cream-200);
+  color: var(--color-stone-900);
+}
+
+/* ----------------------------------------------------------------
+   12. MOBILE SAFE-AREA & TOUCH OPTIMIZATIONS
+   ---------------------------------------------------------------- */
+.pb-safe {
+  padding-bottom: max(1.25rem, env(safe-area-inset-bottom, 0px));
+}
+
+.bottom-safe {
+  bottom: env(safe-area-inset-bottom, 0px);
+}
+
+/* Smooth native momentum scrolling without ugly scrollbars */
+.overflow-touch {
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.overflow-touch::-webkit-scrollbar {
+  display: none;
+}
+
+/* ----------------------------------------------------------------
+   13. PREFERS-REDUCED-MOTION ACCESSIBILITY
+   ---------------------------------------------------------------- */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  .reveal {
+    opacity: 1;
+    transform: none;
+  }
+}
