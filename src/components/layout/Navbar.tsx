@@ -78,13 +78,13 @@ export const Navbar: React.FC<NavbarProps> = ({
         role="banner"
       >
         <div
-          className={`pointer-events-auto w-full max-w-6xl rounded-full transition-all duration-500 ease-out flex items-center justify-between px-5 sm:px-8 py-2.5 sm:py-3 border ${
+          className={`pointer-events-auto w-full max-w-6xl rounded-full transition-all duration-500 ease-out flex items-center justify-between px-4 sm:px-7 py-2 sm:py-2.5 border ${
             isScrolled
-              ? 'bg-dark-950/85 backdrop-blur-xl border-white/[0.12] shadow-[0_15px_35px_-5px_rgba(0,0,0,0.8)]'
-              : 'bg-dark-950/50 backdrop-blur-md border-white/[0.08] shadow-[0_10px_30px_rgba(0,0,0,0.35)]'
+              ? 'bg-dark-700/85 backdrop-blur-2xl border-white/[0.16] shadow-[inset_0_1px_0_rgba(255,255,255,0.10),0_12px_40px_-8px_rgba(0,0,0,0.6)]'
+              : 'bg-dark-600/60 backdrop-blur-xl border-white/[0.14] shadow-[inset_0_1px_0_rgba(255,255,255,0.12),0_8px_30px_rgba(0,0,0,0.3)]'
           }`}
         >
-          {/* ─── Brandmark Lockup: [ ARANYA LOGO ] ARANYA THE PARK ─── */}
+          {/* ─── Official Brand Lockup: Crest + Wordmark ─── */}
           <a
             href="#"
             className="flex items-center gap-2.5 sm:gap-3 group select-none cursor-pointer"
@@ -92,18 +92,16 @@ export const Navbar: React.FC<NavbarProps> = ({
           >
             <img
               src="/assets/branding/aranya-crest.png"
-              alt="Aranya Logo"
-              className="h-7 w-7 sm:h-8 sm:w-8 object-contain transition-transform duration-300 group-hover:scale-105 shrink-0"
+              alt=""
+              className="h-9 w-9 sm:h-10 sm:w-10 object-contain shrink-0 transition-transform duration-500 ease-out group-hover:rotate-[8deg]"
               loading="eager"
             />
-            <div className="flex items-baseline gap-1.5 whitespace-nowrap">
-              <span className="font-serif tracking-[0.22em] text-sm sm:text-base text-ivory group-hover:text-champagne-300 transition-colors uppercase font-light">
-                ARANYA
-              </span>
-              <span className="font-serif tracking-[0.24em] text-[11px] sm:text-xs text-champagne-300/90 font-light uppercase hidden min-[360px]:inline">
-                THE PARK
-              </span>
-            </div>
+            <img
+              src="/assets/branding/aranya-wordmark-light.png"
+              alt="Aranya The Park"
+              className="h-8 sm:h-9 w-auto object-contain shrink-0 transition-opacity duration-300 group-hover:opacity-85"
+              loading="eager"
+            />
           </a>
 
           {/* ─── Desktop Navigation Links ─── */}
@@ -116,7 +114,7 @@ export const Navbar: React.FC<NavbarProps> = ({
                 key={link.label}
                 href={link.href}
                 onClick={(e) => handleNavLinkClick(e, link.label, false)}
-                className="relative text-[11px] font-sans font-medium tracking-[0.2em] uppercase text-ivory-muted hover:text-ivory transition-colors duration-300 py-1 group"
+                className="relative text-[11px] font-sans font-medium tracking-[0.2em] uppercase text-ivory/85 hover:text-champagne-200 transition-colors duration-300 py-1 group"
               >
                 {link.label}
                 <span className="absolute bottom-0 left-1/2 -translate-x-1/2 w-0 h-[1px] bg-champagne-400 transition-all duration-300 group-hover:w-full" />
@@ -164,14 +162,16 @@ export const Navbar: React.FC<NavbarProps> = ({
           <div className="flex items-center gap-3">
             <img
               src="/assets/branding/aranya-crest.png"
-              alt="Aranya Logo"
-              className="h-9 w-9 object-contain shrink-0"
+              alt=""
+              className="h-12 w-12 object-contain shrink-0"
             />
-            <div className="flex flex-col">
-              <span className="font-serif tracking-[0.22em] text-lg text-ivory uppercase font-light">
-                ARANYA THE PARK
-              </span>
-              <span className="text-[9px] font-sans font-medium tracking-[0.35em] uppercase text-champagne-400/90 -mt-0.5">
+            <div className="flex flex-col items-start gap-1">
+              <img
+                src="/assets/branding/aranya-wordmark-light.png"
+                alt="Aranya The Park"
+                className="h-9 w-auto object-contain"
+              />
+              <span className="text-[9px] font-sans font-medium tracking-[0.35em] uppercase text-champagne-400/90 pl-0.5">
                 THE LUSHURY LIFE · MALAD WEST
               </span>
             </div>
