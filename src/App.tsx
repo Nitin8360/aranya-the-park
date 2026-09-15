@@ -17,6 +17,7 @@ import { EnquiryCTA } from './components/sections/EnquiryCTA';
 import { Footer } from './components/layout/Footer';
 import { StickyActionBar } from './components/layout/StickyActionBar';
 import { LeadFormModal } from './components/sections/LeadFormModal';
+import { EnquiryPopup } from './components/common/EnquiryPopup';
 import { Lightbox } from './components/common/Lightbox';
 import type { AmenityItem } from './types';
 
@@ -194,6 +195,9 @@ export default function App() {
         defaultPurpose={leadModalPurpose}
         defaultConfig={leadModalConfig}
       />
+
+      {/* ─── Global Automatic Enquiry Popup (10s Delay) ─── */}
+      <EnquiryPopup delayMs={10000} />
 
       {/* ─── Floor Plans Pop-up ─── */}
       <FloorPlansModal

@@ -6,4 +6,5 @@ export { ImageReveal } from './ImageReveal';
 export { Stat } from './Stat';
 export { Modal } from './Modal';
 export { EnquiryButton } from './EnquiryButton';
+export { EnquiryPopup } from './EnquiryPopup';
 export { LoadingState } from './LoadingState';
