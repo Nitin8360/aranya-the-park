@@ -23,7 +23,7 @@ export const Narrative: React.FC = () => {
           <div className="relative">
             <div className="overflow-hidden shadow-2xl">
               <img
-                src="/assets/lifestyle-sundeck.png"
+                src="/assets/opt/lifestyle-sundeck-2000.webp"
                 alt="Sunlit Sundeck moments at Aranya The Park"
                 className="w-full h-[420px] sm:h-[500px] object-cover group-hover:scale-105 transition-transform duration-700 ease-out brightness-[0.9]"
               />
@@ -99,7 +99,7 @@ export const Narrative: React.FC = () => {
           <div className="relative lg:order-2">
             <div className="overflow-hidden shadow-2xl">
               <img
-                src="/assets/lifestyle-park-greens.png"
+                src="/assets/opt/lifestyle-park-greens-2800.webp"
                 alt="BeyondGreen Landscape at Aranya The Park"
                 className="w-full h-[420px] sm:h-[500px] object-cover object-center transition-transform duration-700 ease-out brightness-[0.9]"
               />

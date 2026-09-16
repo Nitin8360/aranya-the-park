@@ -97,6 +97,14 @@ export default function App() {
     setIsLocationModalOpen(true);
   }, []);
 
+  /** Generic lightbox opener shared by every section image. */
+  const handleOpenLightbox = useCallback(
+    (url: string, title: string, description?: string, category?: string) => {
+      setLightbox({ url, title, description, category });
+    },
+    []
+  );
+
   const handleSelectFloorPlan = useCallback((imageUrl: string, title: string) => {
     setLightbox({
       url: imageUrl,
@@ -131,7 +139,7 @@ export default function App() {
       <StoryArrival />
 
       {/* ─── Chapter 02: A New Kind of Luxury (40% Open Greens) ─── */}
-      <StoryGreens />
+      <StoryGreens onOpenLightbox={handleOpenLightbox} />
 
       {/* ─── Chapter 03: Residences (Living Volumes) ─── */}
       <Residences
@@ -139,6 +147,7 @@ export default function App() {
         onSelectFloorPlan={handleSelectFloorPlan}
         onOpen3DViewer={handleOpen3DViewer}
         onOpenFloorPlansModal={handleOpenFloorPlansModal}
+        onOpenLightbox={handleOpenLightbox}
       />
 
       {/* ─── Chapter 04: 3D Spatial Experience Walkthrough ─── */}
@@ -174,7 +183,7 @@ export default function App() {
       <Gallery onOpenLeadModal={handleOpenLeadModal} />
 
       {/* ─── Developer Heritage & Trust ─── */}
-      <DeveloperTrust onOpenLeadModal={handleOpenLeadModal} />
+      <DeveloperTrust onOpenLeadModal={handleOpenLeadModal} onOpenLightbox={handleOpenLightbox} />
 
       {/* ─── Private Concierge Experience (Enquiry CTA) ─── */}
       <EnquiryCTA onOpenLeadModal={handleOpenLeadModal} />

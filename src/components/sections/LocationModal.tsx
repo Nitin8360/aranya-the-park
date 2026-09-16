@@ -410,7 +410,7 @@ export const LocationModal: React.FC<LocationModalProps> = ({
                   onClick={() => setIsBrochureZoomed(!isBrochureZoomed)}
                 >
                   <img
-                    src="/assets/location-map.png"
+                    src="/assets/opt/location-map-infra-2800.webp"
                     alt="Aranya The Park — Regional Location Map"
                     className="max-h-full max-w-full object-contain filter contrast-[1.1] brightness-[0.95]"
                   />

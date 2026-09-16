@@ -113,7 +113,7 @@ export const EnquiryCTA: React.FC<EnquiryCTAProps> = ({ onOpenLeadModal: _onOpen
                       )}`}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="py-3 px-4 bg-[#25D366] text-white font-sans text-xs uppercase tracking-widest font-bold inline-flex items-center justify-center gap-2 hover:brightness-110 transition-all rounded-[3px]"
+                      className="btn-lux py-3 px-4 bg-[#25D366] text-white font-sans text-xs uppercase tracking-widest font-bold inline-flex items-center justify-center gap-2 hover:brightness-110 transition-all rounded-[3px]"
                     >
                       Connect on WhatsApp
                     </a>

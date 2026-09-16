@@ -73,7 +73,7 @@ export const StoryArrival: React.FC = () => {
         <div className="absolute inset-0 z-0">
           <img
             ref={img1Ref}
-            src="/assets/grand-lobby.png"
+            src="/assets/opt/grand-lobby-2000.webp"
             alt="Aranya The Park Grand Arrival Lobby"
             className="w-full h-full object-cover object-center filter brightness-[0.80] sm:brightness-[0.84] contrast-[1.03] saturate-[1.05]"
           />
@@ -85,11 +85,11 @@ export const StoryArrival: React.FC = () => {
         {/* Layer 2: Architectural Elevation Reveal */}
         <div className="absolute inset-0 z-10 pointer-events-none">
           <picture>
-            <source media="(max-width: 1023px)" srcSet="/assets/hero-elevation-mobile.png" />
+            <source media="(max-width: 1023px)" srcSet="/assets/story-arrival-aerial-mobile.jpg" />
             <img
               ref={img2Ref}
-              src="/assets/hero-elevation.png"
-              alt="Aranya The Park Architectural Elevation"
+              src="/assets/story-arrival-aerial.jpg"
+              alt="Aranya The Park — twin towers rising from a secluded green canopy beside the 18.3-metre boulevard"
               className="w-full h-full object-cover object-top sm:object-center filter brightness-[0.72] sm:brightness-[0.74] contrast-[1.04] opacity-0"
             />
           </picture>

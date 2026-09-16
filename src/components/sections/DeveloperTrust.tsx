@@ -9,6 +9,12 @@ import { developerData } from '../../data/developerData';
 import { projectData } from '../../data/projectData';
 
 interface DeveloperTrustProps {
+  onOpenLightbox?: (
+    url: string,
+    title: string,
+    description?: string,
+    category?: string
+  ) => void;
   onOpenLeadModal?: (purpose: string, config?: string) => void;
 }
 
@@ -30,7 +36,7 @@ interface DeveloperTrustProps {
  *    - Official CTA: "VERIFY ON OFFICIAL MAHARERA PORTAL"
  * 5. Trusted Technical Consortium partners.
  */
-export const DeveloperTrust: React.FC<DeveloperTrustProps> = ({ onOpenLeadModal }) => {
+export const DeveloperTrust: React.FC<DeveloperTrustProps> = ({ onOpenLeadModal, onOpenLightbox }) => {
   return (
     <section
       id="developer"
@@ -40,7 +46,7 @@ export const DeveloperTrust: React.FC<DeveloperTrustProps> = ({ onOpenLeadModal 
       <div className="absolute top-1/3 -right-40 w-[500px] h-[500px] bg-champagne-400/[0.03] rounded-full blur-3xl pointer-events-none" />
       <div className="absolute bottom-10 -left-40 w-[450px] h-[450px] bg-champagne-400/[0.02] rounded-full blur-3xl pointer-events-none" />
 
-      <Container className="relative z-10">
+      <Container size="showcase" className="relative z-10">
         {/* Section Pre-title */}
         <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-16">
           <span className="font-sans text-[10px] sm:text-[11px] uppercase tracking-[0.35em] text-champagne-300 font-medium block mb-3">
@@ -55,11 +61,21 @@ export const DeveloperTrust: React.FC<DeveloperTrustProps> = ({ onOpenLeadModal 
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-0 rounded-2xl overflow-hidden border border-white/[0.1] shadow-[0_20px_60px_-15px_rgba(0,0,0,0.8)] mb-14 sm:mb-16">
           
           {/* Left Column: Architectural Skyline Editorial (Twilight View from Sky Deck) */}
-          <div className="lg:col-span-6 relative min-h-[380px] sm:min-h-[460px] lg:min-h-[600px] bg-dark-950 overflow-hidden flex flex-col justify-between">
+          <div
+            className="lg:col-span-6 relative min-h-[420px] sm:min-h-[540px] lg:min-h-[720px] bg-dark-950 overflow-hidden flex flex-col justify-between group/img cursor-zoom-in"
+            onClick={() =>
+              onOpenLightbox?.(
+                '/assets/branding/skyline-editorial.jpg',
+                'Aranya The Park — Skyline Perspective',
+                developerData.narrative,
+                'Developer Partnership'
+              )
+            }
+          >
             <img
               src="/assets/branding/skyline-editorial.jpg"
               alt="Aranya The Park — Skyline Perspective & Developer Partnership"
-              className="absolute inset-0 w-full h-full object-cover object-center scale-[1.01] hover:scale-105 transition-transform duration-1000 ease-out"
+              className="absolute inset-0 w-full h-full object-cover object-center scale-[1.01] group-hover/img:scale-105 transition-transform duration-1000 ease-out"
               loading="lazy"
             />
             {/* Subtle atmospheric gradient over image */}
@@ -132,7 +148,7 @@ export const DeveloperTrust: React.FC<DeveloperTrustProps> = ({ onOpenLeadModal 
               <div className="relative z-10 pt-8 mt-6 border-t border-[#1D1B16]/15 flex items-center justify-between">
                 <button
                   onClick={() => onOpenLeadModal('Connect with Developer Desk', 'Developer Trust')}
-                  className="px-6 py-3 rounded-full bg-[#181612] hover:bg-[#2B271F] text-[#F4EFE6] font-sans text-xs uppercase tracking-[0.2em] font-semibold transition-all duration-300 shadow-md cursor-pointer select-none"
+                  className="btn-lux px-6 py-3 rounded-full bg-[#181612] hover:bg-[#2B271F] text-[#F4EFE6] font-sans text-xs uppercase tracking-[0.2em] font-semibold transition-all duration-300 shadow-md cursor-pointer select-none"
                 >
                   Connect with Developer Desk
                 </button>
@@ -209,7 +225,7 @@ export const DeveloperTrust: React.FC<DeveloperTrustProps> = ({ onOpenLeadModal 
               href={projectData.reraUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="w-full py-3.5 px-4 bg-champagne-400 hover:bg-champagne-300 text-dark-950 font-sans text-xs uppercase tracking-[0.2em] font-semibold transition-all flex items-center justify-center gap-2 rounded-full shadow-[0_4px_20px_rgba(200,169,107,0.25)] hover:shadow-[0_6px_25px_rgba(200,169,107,0.35)]"
+              className="btn-lux w-full py-3.5 px-4 bg-champagne-400 hover:bg-champagne-300 text-dark-950 font-sans text-xs uppercase tracking-[0.2em] font-semibold transition-all flex items-center justify-center gap-2 rounded-full shadow-[0_4px_20px_rgba(200,169,107,0.25)] hover:shadow-[0_6px_25px_rgba(200,169,107,0.35)]"
             >
               <FileCheck size={15} />
               <span>VERIFY ON OFFICIAL MAHARERA PORTAL</span>

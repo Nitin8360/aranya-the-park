@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Maximize2 } from 'lucide-react';
 import { Container } from '../common/Container';
+import { Img } from '../common/Img';
 import { SectionHeading } from '../common/SectionHeading';
 import { galleryData } from '../../data/galleryData';
 import { Lightbox } from '../common/Lightbox';
@@ -55,7 +56,7 @@ export const Gallery: React.FC<GalleryProps> = ({ onOpenLeadModal: _onOpenLeadMo
       {/* Ambient glow */}
       <div className="absolute top-1/3 -left-32 w-96 h-96 bg-champagne-400/[0.02] rounded-full blur-3xl pointer-events-none" />
 
-      <Container size="wide" className="relative z-10">
+      <Container size="showcase" className="relative z-10">
         {/* Section Heading */}
         <SectionHeading
           eyebrow="CURATED VISUAL CHRONICLES"
@@ -99,9 +100,10 @@ export const Gallery: React.FC<GalleryProps> = ({ onOpenLeadModal: _onOpenLeadMo
                 idx < 2 ? 'sm:col-span-1 lg:first:col-span-2 lg:first:row-span-2' : ''
               } ${idx === 0 ? 'aspect-[4/3] lg:aspect-auto' : 'aspect-[4/3]'}`}
             >
-              <img
+              <Img
                 src={item.image}
                 alt={item.title}
+                sizes="(min-width: 1024px) 490px, (min-width: 640px) 50vw, 100vw"
                 loading="lazy"
                 className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700 ease-out brightness-[0.88] group-hover:brightness-100"
               />

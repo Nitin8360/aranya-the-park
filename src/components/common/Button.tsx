@@ -32,7 +32,7 @@ export const Button: React.FC<ButtonProps> = ({
     'inline-flex items-center justify-center gap-2.5',
     'font-sans font-semibold uppercase tracking-[0.14em]',
     'rounded-[3px]',
-    'transition-all duration-300 ease-out',
+    'btn-lux',
     'cursor-pointer select-none',
     'disabled:opacity-40 disabled:pointer-events-none',
     'focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-champagne-400',
@@ -46,41 +46,44 @@ export const Button: React.FC<ButtonProps> = ({
 
   const variants: Record<string, string> = {
     gold: [
-      'bg-champagne-400 text-forest-800',
-      'hover:bg-champagne-300 hover:shadow-[0_6px_24px_rgba(197,168,128,0.35)]',
-      'active:bg-champagne-500 active:scale-[0.98]',
+      'bg-gradient-to-b from-champagne-300 to-champagne-400 text-forest-800',
+      'shadow-[0_4px_14px_rgba(200,169,107,0.22)]',
+      'hover:from-champagne-200 hover:to-champagne-300',
+      'hover:shadow-[0_10px_30px_rgba(200,169,107,0.45)]',
+      'active:from-champagne-400 active:to-champagne-500',
     ].join(' '),
     outline: [
-      'border border-champagne-400/30 text-champagne-300',
+      'border border-champagne-400/40 text-champagne-300',
       'bg-transparent backdrop-blur-sm',
-      'hover:border-champagne-400 hover:text-cream-100',
-      'hover:shadow-[0_0_20px_rgba(197,168,128,0.1)]',
-      'active:scale-[0.98]',
+      'hover:border-champagne-400 hover:text-cream-100 hover:bg-champagne-400/[0.08]',
+      'hover:shadow-[0_8px_26px_rgba(197,168,128,0.16)]',
     ].join(' '),
     'outline-gold': [
-      'border border-champagne-400/30 text-champagne-300',
+      'border border-champagne-400/40 text-champagne-300',
       'bg-transparent backdrop-blur-sm',
-      'hover:border-champagne-400 hover:text-cream-100 hover:bg-champagne-400/10',
-      'hover:shadow-[0_0_24px_rgba(197,168,128,0.15)]',
-      'active:scale-[0.98]',
+      'hover:border-champagne-400 hover:text-dark-950 hover:bg-champagne-400',
+      'hover:shadow-[0_10px_30px_rgba(200,169,107,0.4)]',
     ].join(' '),
     dark: [
-      'bg-forest-700 text-cream-200 border border-champagne-400/15',
-      'hover:bg-forest-600 hover:border-champagne-400/30',
-      'active:scale-[0.98]',
+      'bg-forest-700 text-cream-200 border border-champagne-400/20',
+      'hover:bg-forest-600 hover:border-champagne-400/45 hover:text-cream-100',
+      'hover:shadow-[0_8px_24px_rgba(0,0,0,0.5)]',
     ].join(' '),
     ghost: [
       'text-champagne-300 bg-transparent',
-      'hover:text-cream-100 hover:bg-cream-100/5',
-      'active:scale-[0.98]',
+      'hover:text-cream-100 hover:bg-cream-100/[0.07]',
     ].join(' '),
   };
 
   const content = (
     <>
-      {icon && iconPosition === 'left' && <span className="shrink-0 -ml-0.5">{icon}</span>}
-      <span>{children}</span>
-      {icon && iconPosition === 'right' && <span className="shrink-0 -mr-0.5">{icon}</span>}
+      {icon && iconPosition === 'left' && (
+        <span className="btn-icon-left shrink-0 -ml-0.5">{icon}</span>
+      )}
+      <span className="relative z-10">{children}</span>
+      {icon && iconPosition === 'right' && (
+        <span className="btn-icon-right shrink-0 -mr-0.5">{icon}</span>
+      )}
     </>
   );
 

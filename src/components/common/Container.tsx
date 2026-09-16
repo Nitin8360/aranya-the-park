@@ -3,7 +3,7 @@ import React from 'react';
 interface ContainerProps {
   children: React.ReactNode;
   /** Max width variant */
-  size?: 'sm' | 'md' | 'lg' | 'xl' | 'wide' | 'full';
+  size?: 'sm' | 'md' | 'lg' | 'xl' | 'wide' | 'showcase' | 'full';
   /** Additional className */
   className?: string;
   /** HTML element to render */
@@ -16,6 +16,7 @@ const widths: Record<string, string> = {
   lg: 'max-w-6xl',
   xl: 'max-w-[1152px]',
   wide: 'max-w-7xl',
+  showcase: 'max-w-[1600px]',
   full: 'max-w-none',
 };
 

@@ -4,8 +4,10 @@ import {
   Eye,
   Check,
   Sparkles,
+  Maximize2,
 } from 'lucide-react';
 import { Container } from '../common/Container';
+import { Img } from '../common/Img';
 import { Button } from '../common/Button';
 import { residencesData } from '../../data/residencesData';
 import type { ResidenceUnit } from '../../types';
@@ -15,6 +17,12 @@ interface ResidencesProps {
   onSelectFloorPlan: (imageUrl: string, title: string) => void;
   onOpen3DViewer?: (config: '2bhk' | '3bhk') => void;
   onOpenFloorPlansModal?: (category?: 'master' | 'tower-a' | 'tower-b') => void;
+  onOpenLightbox?: (
+    url: string,
+    title: string,
+    description?: string,
+    category?: string
+  ) => void;
 }
 
 export const Residences: React.FC<ResidencesProps> = ({
@@ -22,6 +30,7 @@ export const Residences: React.FC<ResidencesProps> = ({
   onSelectFloorPlan,
   onOpen3DViewer,
   onOpenFloorPlansModal,
+  onOpenLightbox,
 }) => {
   const [selectedId, setSelectedId] = useState<string>('2bhk');
 
@@ -46,7 +55,7 @@ export const Residences: React.FC<ResidencesProps> = ({
       {/* Ambient glow */}
       <div className="absolute -left-48 top-1/3 w-[500px] h-[500px] rounded-full bg-champagne-400/[0.02] blur-3xl pointer-events-none" />
 
-      <Container>
+      <Container size="showcase">
         {/* Chapter Header */}
         <div className="text-center mb-16 sm:mb-20">
           <span className="font-sans text-[11px] sm:text-xs uppercase tracking-[0.4em] text-champagne-300 font-medium block mb-5">
@@ -94,12 +103,28 @@ export const Residences: React.FC<ResidencesProps> = ({
             {/* Left: Large Image — 8 cols */}
             <div className="lg:col-span-8">
               <div className="relative overflow-hidden rounded-[4px] shadow-2xl bg-black border border-white/[0.06]">
-                <div className="relative aspect-[16/10] overflow-hidden">
-                  <img
+                <div
+                  className="relative aspect-[16/10] overflow-hidden group/img cursor-zoom-in"
+                  onClick={() =>
+                    onOpenLightbox?.(
+                      currentUnit.threeDThumbnail,
+                      `${currentUnit.title} — ${currentUnit.type}`,
+                      currentUnit.description,
+                      currentUnit.tag
+                    )
+                  }
+                >
+                  <Img
                     src={currentUnit.threeDThumbnail}
                     alt={`${currentUnit.title} — ${currentUnit.type} Residence`}
-                    className="w-full h-full object-cover object-center hover:scale-[1.02] transition-transform duration-700 ease-out brightness-[0.92]"
+                    sizes="(min-width: 1024px) 891px, 100vw"
+                    className="w-full h-full object-cover object-center group-hover/img:scale-[1.02] transition-transform duration-700 ease-out brightness-[0.92]"
                   />
+
+                  {/* Inspect cue */}
+                  <span className="absolute bottom-5 right-5 z-20 p-2.5 rounded-full glass-panel text-ivory group-hover/img:text-champagne-300 group-hover/img:scale-110 transition-all">
+                    <Maximize2 size={16} />
+                  </span>
                   <div className="absolute inset-0 bg-gradient-to-t from-dark-950/70 via-transparent to-transparent" />
 
                   {/* Tag */}
@@ -201,7 +226,7 @@ export const Residences: React.FC<ResidencesProps> = ({
                   onClick={() =>
                     onOpenLeadModal(`Enquire — ${currentUnit.type}`, currentUnit.type)
                   }
-                  className="w-full py-3.5 px-6 text-xs font-sans font-semibold tracking-[0.16em] uppercase text-ivory-muted hover:text-ivory border border-white/[0.12] hover:border-champagne-400/50 rounded-[3px] glass-panel-subtle transition-all duration-300 cursor-pointer"
+                  className="btn-lux w-full py-3.5 px-6 text-xs font-sans font-semibold tracking-[0.16em] uppercase text-ivory-muted hover:text-ivory border border-white/[0.12] hover:border-champagne-400/50 rounded-[3px] glass-panel-subtle transition-all duration-300 cursor-pointer"
                 >
                   REQUEST DETAILS
                 </button>

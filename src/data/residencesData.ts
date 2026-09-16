@@ -21,8 +21,8 @@ export const residencesData: ResidenceUnit[] = [
     ],
     threeDUrl:
       'https://surbhi-infotech.s3.ap-south-1.amazonaws.com/Aranya_The_Park/aranya_the_park_b_2bhk-699/index.html',
-    threeDThumbnail: '/assets/lifestyle-living.png',
-    floorPlanImage: '/assets/plan-tower-b-typical.png',
+    threeDThumbnail: '/assets/opt/lifestyle-living-2000.webp',
+    floorPlanImage: '/assets/opt/plan-tower-b-typical-2600.webp',
   },
   {
     id: '3bhk',
@@ -44,8 +44,8 @@ export const residencesData: ResidenceUnit[] = [
     ],
     threeDUrl:
       'https://surbhi-infotech.s3.ap-south-1.amazonaws.com/Aranya_The_Park/aranya_the_park_b_3bhk-1066/index.html',
-    threeDThumbnail: '/assets/residences-interior.png',
-    floorPlanImage: '/assets/plan-tower-a-typical.png',
+    threeDThumbnail: '/assets/opt/residences-interior-2000.webp',
+    floorPlanImage: '/assets/opt/plan-tower-a-typical-2600.webp',
   },
   {
     id: '4bhk',
@@ -66,7 +66,7 @@ export const residencesData: ResidenceUnit[] = [
       'Dedicated servant washroom facilities on floor',
     ],
     threeDUrl: undefined,
-    threeDThumbnail: '/assets/lifestyle-sundeck.png',
-    floorPlanImage: '/assets/plan-tower-a-upper.png',
+    threeDThumbnail: '/assets/opt/lifestyle-sundeck-2000.webp',
+    floorPlanImage: '/assets/opt/plan-tower-a-upper-2600.webp',
   },
 ];

@@ -601,3 +601,84 @@
     transform: none;
   }
 }
+
+/* ----------------------------------------------------------------
+   14. BUTTON MICRO-INTERACTIONS
+   ----------------------------------------------------------------
+   Every luxury button shares one behaviour: it lifts slightly, casts a
+   warmer shadow, and a single restrained highlight sweeps across it. The
+   sweep is deliberately narrow and low-opacity — it should read as light
+   catching a metal edge, not as a glossy web button.
+   ---------------------------------------------------------------- */
+.btn-lux {
+  position: relative;
+  overflow: hidden;
+  transform: translateZ(0);
+  transition:
+    transform 0.3s cubic-bezier(0.2, 0.8, 0.2, 1),
+    box-shadow 0.3s cubic-bezier(0.2, 0.8, 0.2, 1),
+    background-color 0.3s ease,
+    border-color 0.3s ease,
+    color 0.3s ease;
+}
+
+.btn-lux::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: -75%;
+  width: 45%;
+  background: linear-gradient(
+    100deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.26) 50%,
+    transparent 100%
+  );
+  transform: skewX(-18deg);
+  opacity: 0;
+  pointer-events: none;
+}
+
+.btn-lux:hover::after {
+  animation: btnSheen 0.75s cubic-bezier(0.25, 0.1, 0.25, 1);
+}
+
+@keyframes btnSheen {
+  0%   { left: -75%; opacity: 0; }
+  12%  { opacity: 1; }
+  100% { left: 125%; opacity: 0; }
+}
+
+.btn-lux:hover  { transform: translateY(-2px); }
+.btn-lux:active { transform: translateY(0) scale(0.985); transition-duration: 0.09s; }
+
+/* Trailing/leading icons lean toward the action on hover */
+.btn-icon-right,
+.btn-icon-left {
+  transition: transform 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+.btn-lux:hover .btn-icon-right { transform: translateX(3px); }
+.btn-lux:hover .btn-icon-left  { transform: translateX(-3px); }
+
+/* ----------------------------------------------------------------
+   15. CONTACT CLOSET
+   ----------------------------------------------------------------
+   The floating contact bar collapses to a single trigger. A slow halo
+   marks it as live without demanding attention; it stops the moment the
+   closet has been opened once.
+   ---------------------------------------------------------------- */
+@keyframes closetHalo {
+  0%   { box-shadow: 0 0 0 0 rgba(200, 169, 107, 0.45); }
+  70%  { box-shadow: 0 0 0 15px rgba(200, 169, 107, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(200, 169, 107, 0); }
+}
+
+.closet-halo {
+  animation: closetHalo 2.8s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+/* The halo is decoration; never let it run for reduced-motion users. */
+@media (prefers-reduced-motion: reduce) {
+  .closet-halo { animation: none; }
+}

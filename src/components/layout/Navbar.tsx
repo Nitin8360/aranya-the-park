@@ -91,16 +91,22 @@ export const Navbar: React.FC<NavbarProps> = ({
             aria-label="Aranya The Park — Home"
           >
             <img
-              src="/assets/branding/aranya-crest.png"
+              src="/assets/branding/aranya-crest-96.png"
+              srcSet="/assets/branding/aranya-crest-48.png 1x, /assets/branding/aranya-crest-96.png 2x, /assets/branding/aranya-crest-144.png 3x"
               alt=""
-              className="h-9 w-9 sm:h-10 sm:w-10 object-contain shrink-0 transition-transform duration-500 ease-out group-hover:rotate-[8deg]"
+              width={48}
+              height={48}
               loading="eager"
+              className="h-10 w-10 sm:h-11 sm:w-11 object-contain shrink-0 transition-transform duration-500 ease-out group-hover:rotate-[8deg]"
             />
             <img
-              src="/assets/branding/aranya-wordmark-light.png"
+              src="/assets/branding/aranya-wordmark-light-320.png"
+              srcSet="/assets/branding/aranya-wordmark-light-160.png 1x, /assets/branding/aranya-wordmark-light-320.png 2x, /assets/branding/aranya-wordmark-light-480.png 3x"
               alt="Aranya The Park"
-              className="h-8 sm:h-9 w-auto object-contain shrink-0 transition-opacity duration-300 group-hover:opacity-85"
+              width={160}
+              height={45}
               loading="eager"
+              className="h-10 sm:h-11 w-auto object-contain shrink-0 transition-opacity duration-300 group-hover:opacity-85"
             />
           </a>
 
@@ -126,7 +132,7 @@ export const Navbar: React.FC<NavbarProps> = ({
           <div className="hidden lg:flex items-center">
             <button
               onClick={() => (onOpenLeadModal ? onOpenLeadModal('Navbar Inquiry') : undefined)}
-              className="px-5 py-2 text-[10px] font-sans font-semibold tracking-[0.22em] uppercase text-champagne-300 hover:text-dark-950 hover:bg-champagne-400 border border-champagne-400/40 hover:border-champagne-400 rounded-full transition-all duration-300 cursor-pointer select-none"
+              className="btn-lux px-5 py-2 text-[10px] font-sans font-semibold tracking-[0.22em] uppercase text-champagne-300 hover:text-dark-950 hover:bg-champagne-400 border border-champagne-400/40 hover:border-champagne-400 rounded-full transition-all duration-300 cursor-pointer select-none"
             >
               ENQUIRE
             </button>
@@ -161,15 +167,21 @@ export const Navbar: React.FC<NavbarProps> = ({
         <div className="relative z-20 flex items-center justify-between px-6 pt-[max(1.25rem,env(safe-area-inset-top,0px))] pb-4 border-b border-white/[0.08]">
           <div className="flex items-center gap-3">
             <img
-              src="/assets/branding/aranya-crest.png"
+              src="/assets/branding/aranya-crest-96.png"
+              srcSet="/assets/branding/aranya-crest-48.png 1x, /assets/branding/aranya-crest-96.png 2x, /assets/branding/aranya-crest-144.png 3x"
               alt=""
+              width={48}
+              height={48}
               className="h-12 w-12 object-contain shrink-0"
             />
             <div className="flex flex-col items-start gap-1">
               <img
-                src="/assets/branding/aranya-wordmark-light.png"
+                src="/assets/branding/aranya-wordmark-light-320.png"
+                srcSet="/assets/branding/aranya-wordmark-light-160.png 1x, /assets/branding/aranya-wordmark-light-320.png 2x, /assets/branding/aranya-wordmark-light-480.png 3x"
                 alt="Aranya The Park"
-                className="h-9 w-auto object-contain"
+                width={160}
+                height={45}
+                className="h-11 w-auto object-contain"
               />
               <span className="text-[9px] font-sans font-medium tracking-[0.35em] uppercase text-champagne-400/90 pl-0.5">
                 THE LUSHURY LIFE · MALAD WEST
@@ -211,7 +223,7 @@ export const Navbar: React.FC<NavbarProps> = ({
                 closeMobile();
                 if (onOpenLeadModal) onOpenLeadModal('Mobile Navigation Inquiry');
               }}
-              className="w-full py-4 min-h-[52px] text-xs font-sans font-semibold tracking-[0.2em] uppercase text-dark-950 bg-champagne-400 hover:bg-champagne-300 active:scale-[0.99] rounded-full transition-all duration-300 cursor-pointer text-center shadow-[0_8px_25px_rgba(200,169,107,0.3)]"
+              className="btn-lux w-full py-4 min-h-[52px] text-xs font-sans font-semibold tracking-[0.2em] uppercase text-dark-950 bg-champagne-400 hover:bg-champagne-300 active:scale-[0.99] rounded-full transition-all duration-300 cursor-pointer text-center shadow-[0_8px_25px_rgba(200,169,107,0.3)]"
             >
               ENQUIRE NOW
             </button>

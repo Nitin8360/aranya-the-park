@@ -7,6 +7,7 @@ import {
   Smartphone,
 } from 'lucide-react';
 import { Container } from '../common/Container';
+import { Img } from '../common/Img';
 import { Button } from '../common/Button';
 import { LoadingState } from '../common/LoadingState';
 
@@ -53,7 +54,7 @@ const TOUR_DATA: Record<'2bhk' | '3bhk', ResidenceTourData> = {
       '100% Vastu-compliant entrance and living orientation',
     ],
     url: 'https://surbhi-infotech.s3.ap-south-1.amazonaws.com/Aranya_The_Park/aranya_the_park_b_2bhk-699/index.html',
-    thumbnail: '/assets/lifestyle-living.png',
+    thumbnail: '/assets/opt/lifestyle-living-2000.webp',
   },
   '3bhk': {
     id: '3bhk',
@@ -75,7 +76,7 @@ const TOUR_DATA: Record<'2bhk' | '3bhk', ResidenceTourData> = {
       'Cross-ventilated layout with panoramic dual-aspect vistas',
     ],
     url: 'https://surbhi-infotech.s3.ap-south-1.amazonaws.com/Aranya_The_Park/aranya_the_park_b_3bhk-1066/index.html',
-    thumbnail: '/assets/residences-interior.png',
+    thumbnail: '/assets/opt/residences-interior-2000.webp',
   },
 };
 
@@ -158,7 +159,7 @@ export const VirtualTour3D: React.FC<VirtualTour3DProps> = ({
       {/* Ambient background glow */}
       <div className="absolute top-1/3 left-1/2 -translate-x-1/2 w-[800px] h-[500px] bg-champagne-400/[0.02] rounded-full blur-3xl pointer-events-none" />
 
-      <Container>
+      <Container size="showcase">
         {/* Chapter Header */}
         <div className="text-center mb-16 sm:mb-20">
           <span className="font-sans text-[11px] sm:text-xs uppercase tracking-[0.4em] text-champagne-300 font-medium block mb-5">
@@ -204,9 +205,10 @@ export const VirtualTour3D: React.FC<VirtualTour3DProps> = ({
               <div className="relative border border-white/[0.08] rounded-[4px] overflow-hidden group shadow-2xl bg-black">
                 {/* Visual Preview Image */}
                 <div className="relative aspect-[16/10] sm:aspect-[16/9] overflow-hidden">
-                  <img
+                  <Img
                     src={current.thumbnail}
                     alt={`${current.name} 3D Preview`}
+                    sizes="(min-width: 1024px) 779px, 100vw"
                     className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700 ease-out brightness-[0.85]"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-dark-950/90 via-dark-950/20 to-transparent" />

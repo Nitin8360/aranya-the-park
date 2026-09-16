@@ -1,5 +1,5 @@
 import React from 'react';
-import { ArrowDown, ArrowRight, Play } from 'lucide-react';
+import { ArrowRight, Play } from 'lucide-react';
 import { projectData } from '../../data/projectData';
 
 interface HeroProps {
@@ -71,7 +71,7 @@ export const Hero: React.FC<HeroProps> = ({ onOpenLeadModal }) => {
       </div>
 
       {/* ─── Navbar spacer ─── */}
-      <div className="relative z-10 pt-24 sm:pt-28 lg:pt-32 shrink-0" />
+      <div className="relative z-10 pt-24 sm:pt-28 lg:pt-[clamp(5.5rem,9vh,8rem)] shrink-0" />
 
       {/* ─── Main Composition ─── */}
       <div className="relative z-10 flex-1 flex items-center px-5 sm:px-8 lg:pl-0 lg:pr-8 xl:pr-12 py-6 lg:py-0">
@@ -100,7 +100,7 @@ export const Hero: React.FC<HeroProps> = ({ onOpenLeadModal }) => {
             </h1>
 
             {/* Ornament divider */}
-            <div className="flex items-center justify-center gap-4 my-6 sm:my-8 hero-animate-subtitle">
+            <div className="flex items-center justify-center gap-4 my-6 sm:my-8 lg:my-[clamp(1.25rem,2.6vh,2rem)] hero-animate-subtitle">
               <span className="w-12 sm:w-16 h-px bg-gradient-to-r from-transparent to-champagne-400/70" />
               <img
                 src="/assets/branding/aranya-crest.png"
@@ -123,17 +123,17 @@ export const Hero: React.FC<HeroProps> = ({ onOpenLeadModal }) => {
             </div>
 
             {/* CTAs */}
-            <div className="mt-8 sm:mt-10 flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 hero-animate-cta">
+            <div className="mt-8 sm:mt-10 lg:mt-[clamp(1.5rem,3.2vh,2.5rem)] flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 hero-animate-cta">
               <button
                 onClick={() => onOpenLeadModal?.('Hero Enquiry')}
-                className="group w-full sm:w-auto inline-flex items-center justify-center gap-3 px-8 sm:px-9 py-3.5 sm:py-4 rounded-full bg-champagne-400 hover:bg-champagne-300 text-dark-950 font-sans font-semibold text-[11px] sm:text-xs uppercase tracking-[0.22em] transition-all duration-300 shadow-[0_8px_30px_rgba(200,169,107,0.28)] hover:shadow-[0_10px_36px_rgba(200,169,107,0.42)] cursor-pointer"
+                className="btn-lux group w-full sm:w-auto inline-flex items-center justify-center gap-3 px-8 sm:px-9 py-3.5 sm:py-4 rounded-full bg-champagne-400 hover:bg-champagne-300 text-dark-950 font-sans font-semibold text-[11px] sm:text-xs uppercase tracking-[0.22em] transition-all duration-300 shadow-[0_8px_30px_rgba(200,169,107,0.28)] hover:shadow-[0_10px_36px_rgba(200,169,107,0.42)] cursor-pointer"
               >
                 <span>Enquire Now</span>
                 <ArrowRight size={15} className="transition-transform duration-300 group-hover:translate-x-1" />
               </button>
               <a
                 href="#residences"
-                className="group w-full sm:w-auto inline-flex items-center justify-center gap-3 pl-8 sm:pl-9 pr-3 py-2.5 rounded-full border border-ivory/25 hover:border-champagne-400/60 text-ivory font-sans font-medium text-[11px] sm:text-xs uppercase tracking-[0.22em] transition-all duration-300 glass-panel-subtle cursor-pointer"
+                className="btn-lux group w-full sm:w-auto inline-flex items-center justify-center gap-3 pl-8 sm:pl-9 pr-3 py-2.5 rounded-full border border-ivory/25 hover:border-champagne-400/60 text-ivory font-sans font-medium text-[11px] sm:text-xs uppercase tracking-[0.22em] transition-all duration-300 glass-panel-subtle cursor-pointer"
               >
                 <span className="py-1">Explore Residences</span>
                 <span className="w-8 h-8 rounded-full border border-ivory/30 group-hover:border-champagne-400 group-hover:bg-champagne-400/15 flex items-center justify-center transition-all duration-300">
@@ -147,23 +147,18 @@ export const Hero: React.FC<HeroProps> = ({ onOpenLeadModal }) => {
       </div>
 
       {/* ─── Scroll Cue (aligned under the centre column) ─── */}
-      <div className="relative z-10 shrink-0 pb-24 sm:pb-28 lg:pb-9 lg:pr-8 xl:pr-12 grid grid-cols-1 lg:grid-cols-[22%_minmax(0,1fr)_22%] 2xl:grid-cols-[24%_minmax(0,1fr)_24%] hero-animate-cue">
-        <div className="lg:col-start-2 flex flex-col items-center gap-3">
+      <div className="relative z-10 shrink-0 pb-24 sm:pb-28 lg:pb-[clamp(1.25rem,2.5vh,2.25rem)] lg:pr-8 xl:pr-12 grid grid-cols-1 lg:grid-cols-[22%_minmax(0,1fr)_22%] 2xl:grid-cols-[24%_minmax(0,1fr)_24%] hero-animate-cue">
+        <div className="lg:col-start-2 flex flex-col items-center gap-3 lg:gap-2.5">
           <img
             src="/assets/branding/project-by-zaveri-bkm-light.png"
             alt={`Project by ${projectData.jointVenture}`}
             className="lg:hidden h-9 w-auto object-contain opacity-85 mb-3"
           />
-          <span className="w-px h-6 bg-gradient-to-b from-transparent to-champagne-400/70" />
-          <span className="font-sans text-[9px] sm:text-[10px] uppercase tracking-[0.35em] text-ivory-muted/70">
-            Scroll to Explore
-          </span>
           <a
             href="#story-arrival"
-            aria-label="Scroll to explore"
-            className="w-11 h-11 rounded-full border border-champagne-400/50 hover:border-champagne-300 hover:bg-champagne-400/10 flex items-center justify-center text-champagne-300 transition-all duration-300 cursor-pointer"
+            className="font-sans text-[9px] sm:text-[10px] uppercase tracking-[0.35em] text-ivory-muted/70 hover:text-champagne-300 transition-colors duration-300 cursor-pointer"
           >
-            <ArrowDown size={15} className="animate-bounce" />
+            Scroll to Explore
           </a>
         </div>
       </div>

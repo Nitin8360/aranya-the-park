@@ -145,7 +145,7 @@ export const LeadFormModal: React.FC<LeadFormModalProps> = ({
               )}`}
               target="_blank"
               rel="noopener noreferrer"
-              className="w-full py-3 px-4 bg-[#25D366] text-white font-sans text-xs uppercase tracking-widest font-bold inline-flex items-center justify-center gap-2 hover:brightness-105 transition-all rounded-[3px] shadow-md"
+              className="btn-lux w-full py-3 px-4 bg-[#25D366] text-white font-sans text-xs uppercase tracking-widest font-bold inline-flex items-center justify-center gap-2 hover:brightness-105 transition-all rounded-[3px] shadow-md"
             >
               <MessageSquare size={15} />
               <span>Connect Instantly on WhatsApp</span>

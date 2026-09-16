@@ -8,6 +8,7 @@ import {
   FileDown,
 } from 'lucide-react';
 import { Container } from '../common/Container';
+import { Img } from '../common/Img';
 import { detailedFloorPlans } from '../../data/floorPlansData';
 
 interface FloorPlansProps {
@@ -64,7 +65,7 @@ export const FloorPlans: React.FC<FloorPlansProps> = ({
       {/* Background ambient lighting */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[500px] bg-champagne-400/[0.02] rounded-full blur-3xl pointer-events-none" />
 
-      <Container>
+      <Container size="showcase">
         {/* Section Header */}
         <div className="text-center mb-14 sm:mb-16">
           <span className="font-sans text-[11px] sm:text-xs uppercase tracking-[0.4em] text-champagne-300 font-medium block mb-5">
@@ -187,14 +188,15 @@ export const FloorPlans: React.FC<FloorPlansProps> = ({
           </div>
 
           {/* Large Architectural Blueprint Stage */}
-          <div className="relative h-[480px] sm:h-[600px] lg:h-[650px] bg-black/40 overflow-hidden flex items-center justify-center p-6 sm:p-10 cursor-grab active:cursor-grabbing">
+          <div className="relative h-[520px] sm:h-[680px] lg:h-[820px] bg-black/40 overflow-hidden flex items-center justify-center p-6 sm:p-10 cursor-grab active:cursor-grabbing">
             <div
               className="transition-transform duration-300 ease-out origin-center flex items-center justify-center w-full h-full"
               style={{ transform: `scale(${zoomLevel})` }}
             >
-              <img
+              <Img
                 src={currentPlan.image}
                 alt={currentPlan.title}
+                sizes="(min-width: 1024px) 1400px, 100vw"
                 className="max-h-full max-w-full object-contain filter drop-shadow-2xl"
               />
             </div>
