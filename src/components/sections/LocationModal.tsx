@@ -315,9 +315,16 @@ export const LocationModal: React.FC<LocationModalProps> = ({
                       A
                     </text>
                     <rect x="-70" y="-36" width="140" height="22" fill="#080908" stroke="#C8A96B" strokeWidth="1.2" rx="2" />
-                    <text x="0" y="-22" fill="#F4F0E8" fontSize="9" fontWeight="bold" textAnchor="middle" letterSpacing="1" fontFamily="serif">
-                      ARANYA THE PARK
-                    </text>
+                    <image
+                      href="/assets/branding/aranya-wordmark-light.png"
+                      x="-62"
+                      y="-34"
+                      width="124"
+                      height="18"
+                      preserveAspectRatio="xMidYMid meet"
+                    >
+                      <title>Aranya The Park</title>
+                    </image>
                   </g>
 
                   {/* Schematic Interactive Landmark Nodes */}

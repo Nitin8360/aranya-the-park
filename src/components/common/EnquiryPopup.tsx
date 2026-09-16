@@ -271,11 +271,14 @@ export const EnquiryPopup: React.FC<EnquiryPopupProps> = ({ delayMs = 10000 }) =
               <span className="text-[10px] sm:text-[11px] font-sans font-semibold tracking-[0.28em] text-champagne-300 uppercase block mb-1">
                 ENQUIRE ABOUT
               </span>
-              <h3
-                id="enquiry-popup-title"
-                className="font-serif text-2xl sm:text-3xl text-ivory font-light tracking-wide uppercase"
-              >
-                ARANYA THE PARK
+              <h3 id="enquiry-popup-title" className="m-0">
+                <img
+                  src="/assets/branding/aranya-wordmark-light.png"
+                  alt="Aranya The Park"
+                  width={2393}
+                  height={678}
+                  className="h-11 sm:h-14 w-auto max-w-full mx-auto object-contain"
+                />
               </h3>
               <p className="text-xs sm:text-sm text-ivory-muted/80 font-sans font-light mt-1.5 max-w-xs mx-auto">
                 Schedule a private consultation / site visit.

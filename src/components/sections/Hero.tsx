@@ -87,15 +87,17 @@ export const Hero: React.FC<HeroProps> = ({ onOpenLeadModal }) => {
               <span className="w-8 sm:w-12 h-px bg-champagne-400/70" />
             </div>
 
-            {/* Title */}
-            <div className="hero-animate-title">
-              <h1 className="font-serif font-medium uppercase text-ivory leading-[0.9] tracking-[0.08em] text-[clamp(3.25rem,10.5vw,8rem)] drop-shadow-[0_6px_30px_rgba(0,0,0,0.65)]">
-                Aranya
-              </h1>
-              <div className="font-serif uppercase text-champagne-300 tracking-[0.6em] mt-2 sm:mt-3 text-[clamp(1.4rem,3.9vw,3.5rem)] leading-none pl-[0.6em] drop-shadow-lg">
-                The Park
-              </div>
-            </div>
+            {/* Title — Official Aranya The Park wordmark lockup */}
+            <h1 className="hero-animate-title m-0">
+              <img
+                src="/assets/branding/aranya-wordmark-light.png"
+                alt="Aranya The Park"
+                width={2393}
+                height={678}
+                fetchPriority="high"
+                className="w-[clamp(17rem,44vw,36rem)] max-w-full h-auto mx-auto object-contain drop-shadow-[0_6px_30px_rgba(0,0,0,0.65)]"
+              />
+            </h1>
 
             {/* Ornament divider */}
             <div className="flex items-center justify-center gap-4 my-6 sm:my-8 hero-animate-subtitle">

@@ -311,8 +311,17 @@ export const VirtualTour3D: React.FC<VirtualTour3DProps> = ({
             {/* Left: Brand & Residence Info */}
             <div className="flex items-center gap-4 min-w-0">
               <div className="min-w-0">
-                <span className="font-sans text-[10px] uppercase tracking-[0.25em] text-champagne-400 font-semibold block truncate">
-                  Aranya The Park • Malad West
+                <span className="flex items-center gap-2 min-w-0">
+                  <img
+                    src="/assets/branding/aranya-wordmark-light.png"
+                    alt="Aranya The Park"
+                    width={2393}
+                    height={678}
+                    className="h-5 sm:h-6 w-auto object-contain shrink-0"
+                  />
+                  <span className="font-sans text-[10px] uppercase tracking-[0.25em] text-champagne-400 font-semibold truncate">
+                    • Malad West
+                  </span>
                 </span>
                 <h4 className="font-serif text-sm sm:text-lg text-ivory font-light truncate">
                   {current.name}

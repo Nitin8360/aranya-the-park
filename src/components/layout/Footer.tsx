@@ -25,9 +25,14 @@ export const Footer: React.FC<FooterProps> = ({
               loading="lazy"
             />
             <div>
-              <span className="font-serif tracking-[0.22em] text-2xl sm:text-3xl text-ivory font-light block">
-                ARANYA THE PARK
-              </span>
+              <img
+                src="/assets/branding/aranya-wordmark-light.png"
+                alt="Aranya The Park"
+                width={2393}
+                height={678}
+                loading="lazy"
+                className="h-12 sm:h-14 w-auto max-w-full object-contain block"
+              />
               <span className="text-[10px] tracking-[0.35em] uppercase text-champagne-300 font-medium block mt-1">
                 THE LUSHURY LIFE · MALAD WEST
               </span>
