@@ -17,8 +17,8 @@ interface ModalProps {
 
 const modalSizes: Record<string, string> = {
   sm: 'max-w-md',
-  md: 'max-w-lg',
-  lg: 'max-w-2xl',
+  md: 'max-w-[820px] lg:max-w-[860px]',
+  lg: 'max-w-[900px]',
 };
 
 /**
@@ -65,33 +65,33 @@ export const Modal: React.FC<ModalProps> = ({
 
   return (
     <div
-      className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-5"
+      className="fixed inset-0 z-[100] flex items-center justify-center p-3.5 sm:p-5 md:p-6"
       role="dialog"
       aria-modal="true"
       aria-label={title || 'Dialog'}
     >
       {/* Backdrop */}
       <div
-        className="absolute inset-0 bg-dark-950/90 backdrop-blur-xl animate-fade-in"
+        className="fixed inset-0 bg-dark-950/85 backdrop-blur-md animate-fade-in cursor-pointer"
         onClick={onClose}
       />
 
-      {/* Modal Panel */}
+      {/* Modal Panel — Compact, Elegant, Max 85vh */}
       <div
-        className={`relative w-full ${maxWidth || modalSizes[size]} bg-dark-900 border border-white/[0.12] shadow-[0_25px_70px_rgba(0,0,0,0.85)] rounded-[4px] animate-scale-in max-h-[92vh] overflow-y-auto overflow-touch`}
+        className={`relative w-full ${maxWidth || modalSizes[size]} bg-dark-900/95 border border-champagne-400/20 shadow-[0_25px_80px_rgba(0,0,0,0.85)] rounded-lg sm:rounded-xl animate-scale-in max-h-[85vh] overflow-y-auto overflow-touch z-10`}
       >
         {/* Header */}
         {title && (
-          <div className="flex items-center justify-between px-5 sm:px-7 py-4 sm:py-5 border-b border-white/[0.08]">
+          <div className="flex items-center justify-between px-5 sm:px-7 py-3.5 sm:py-4 border-b border-white/[0.08] sticky top-0 bg-dark-900/95 backdrop-blur-md z-20">
             <div>
-              <h3 className="font-serif text-lg sm:text-xl text-ivory font-light">{title}</h3>
+              <h3 className="font-serif text-lg sm:text-2xl text-ivory font-light tracking-wide">{title}</h3>
               {subtitle && (
-                <p className="text-xs text-ivory-muted/70 mt-0.5 font-sans">{subtitle}</p>
+                <p className="text-[11px] sm:text-xs text-champagne-300/90 mt-0.5 font-sans font-medium tracking-wider uppercase">{subtitle}</p>
               )}
             </div>
             <button
               onClick={onClose}
-              className="p-2 min-h-[40px] min-w-[40px] flex items-center justify-center text-ivory-muted hover:text-ivory hover:bg-white/[0.06] rounded-full transition-all duration-200 cursor-pointer"
+              className="p-2 min-h-[38px] min-w-[38px] flex items-center justify-center text-ivory-muted hover:text-ivory hover:bg-white/[0.08] rounded-full transition-all duration-200 cursor-pointer"
               aria-label="Close dialog"
             >
               <X size={18} strokeWidth={1.5} />
@@ -103,7 +103,7 @@ export const Modal: React.FC<ModalProps> = ({
         {!title && (
           <button
             onClick={onClose}
-            className="absolute top-3 right-3 p-2 min-h-[40px] min-w-[40px] flex items-center justify-center text-ivory-muted hover:text-ivory hover:bg-white/[0.06] rounded-full transition-all duration-200 z-10 cursor-pointer"
+            className="absolute top-3.5 right-3.5 p-2 min-h-[38px] min-w-[38px] flex items-center justify-center text-ivory-muted hover:text-ivory hover:bg-white/[0.08] rounded-full transition-all duration-200 z-10 cursor-pointer"
             aria-label="Close dialog"
           >
             <X size={18} strokeWidth={1.5} />
@@ -111,7 +111,7 @@ export const Modal: React.FC<ModalProps> = ({
         )}
 
         {/* Content */}
-        <div className="p-5 sm:p-7">{children}</div>
+        <div className="p-4 sm:p-6 lg:p-7">{children}</div>
       </div>
     </div>
   );

@@ -1,41 +1,68 @@
 @import "tailwindcss";
 
 /* ================================================================
-   ARANYA THE PARK — DESIGN SYSTEM v2.0
+   ARANYA THE PARK — RESTORED DEEP FOREST GREEN LUXURY SYSTEM v3.0
    ================================================================
-   An editorial luxury design system inspired by architectural
-   coffee-table monographs: generous whitespace, restrained
-   typography, and progressive content disclosure.
+   An authentic high-editorial luxury design system:
+   - Deep forest green / dark green environment (#071510)
+   - Warm champagne / muted gold accents (#C8A96B, #D8BD8C)
+   - Warm ivory typography (#F4F0E8)
+   - Subtle green tonal variations (#0A1C15, #0E241C, #132E24)
+   - Restrained modern glass surfaces with muted gold borders
    ================================================================ */
 
 /* ----------------------------------------------------------------
-   1. THEME TOKENS — COLOR PALETTE
+   1. CORE CSS CUSTOM PROPERTIES (CENTRALIZED THEME SYSTEM)
+   ---------------------------------------------------------------- */
+:root {
+  /* — Backgrounds — */
+  --color-bg: #071510;               /* Deep forest green base */
+  --color-bg-secondary: #0A1C15;     /* Slightly lighter dark green */
+  --color-surface: #0E241C;          /* Dark green / charcoal-green surface */
+  --color-surface-elevated: #132E24; /* Elevated green card/hover surface */
+  --color-surface-glass: rgba(10, 28, 21, 0.75); /* Semi-transparent dark green glass */
+
+  /* — Accents & Borders — */
+  --color-border: rgba(200, 169, 107, 0.18);      /* Subtle muted gold / warm neutral */
+  --color-border-subtle: rgba(255, 255, 255, 0.08); /* Subtle architectural divider */
+  --color-border-strong: rgba(200, 169, 107, 0.35); /* Prominent gold highlight */
+  --color-gold: #C8A96B;             /* Champagne gold */
+  --color-gold-muted: #D8BD8C;       /* Soft antique gold */
+
+  /* — Typography — */
+  --color-text-primary: #F4F0E8;     /* Warm ivory */
+  --color-text-secondary: #B9B3A8;   /* Muted warm gray */
+  --color-text-muted: #7A8A82;       /* Subtle desaturated green-gray */
+}
+
+/* ----------------------------------------------------------------
+   2. TAILWIND THEME TOKENS — PALETTE & SPACING
    ---------------------------------------------------------------- */
 @theme {
-  /* — Dark Luxury Palette (Near-Black & Charcoal Base) — */
-  --color-dark-950: #080908;
-  --color-dark-900: #0D0D0C;
-  --color-dark-850: #121211;
-  --color-dark-800: #171715;
-  --color-dark-750: #1C1B18;
-  --color-dark-700: #23221E;
-  --color-dark-600: #33312B;
+  /* — Deep Forest Green Palette (Dominant Brand Environment) — */
+  --color-dark-950: #071510; /* Very deep forest green */
+  --color-dark-900: #0A1C15; /* Slightly lighter dark green */
+  --color-dark-850: #0E241C; /* Dark green / charcoal-green */
+  --color-dark-800: #132E24; /* Elevated green surface */
+  --color-dark-750: #18372C; /* Subtle accent green */
+  --color-dark-700: #1F4436; /* Interactive element */
+  --color-dark-600: #295544; /* Border highlight */
 
-  /* — Backward-compatible semantic aliases mapped to Dark Luxury — */
-  --color-forest-950: #080908;
-  --color-forest-900: #0D0D0C;
-  --color-forest-850: #121211;
-  --color-forest-800: #0D0D0C;
-  --color-forest-700: #171715;
-  --color-forest-600: #1C1B18;
-  --color-forest-500: #2A2823;
-  --color-forest-400: #3D3A33;
+  /* — Semantic Forest Aliases (Matching Original & Current Architecture) — */
+  --color-forest-950: #071510;
+  --color-forest-900: #0A1C15;
+  --color-forest-850: #0E241C;
+  --color-forest-800: #132E24;
+  --color-forest-700: #18372C;
+  --color-forest-600: #1F4436;
+  --color-forest-500: #295544;
+  --color-forest-400: #3A725D;
 
   /* — Warm Ivory / Cream Text — */
   --color-ivory: #F4F0E8;
   --color-ivory-light: #FAF8F5;
   --color-ivory-muted: #B9B3A8;
-  --color-ivory-subtle: #7E7970;
+  --color-ivory-subtle: #7A8A82;
 
   --color-cream-50: #FAF8F5;
   --color-cream-100: #F4F0E8;
@@ -52,19 +79,19 @@
 
   /* — Bronze / Warm Taupe Supporting Accents — */
   --color-bronze: #8C7A5E;
-  --color-warm-950: #080908;
-  --color-warm-900: #0D0D0C;
-  --color-warm-800: #121211;
-  --color-warm-700: #171715;
-  --color-warm-600: #1C1B18;
+  --color-warm-950: #071510;
+  --color-warm-900: #0A1C15;
+  --color-warm-800: #0E241C;
+  --color-warm-700: #132E24;
+  --color-warm-600: #18372C;
 
   /* — Neutral Supporting Tones — */
-  --color-stone-900: #121211;
-  --color-stone-800: #1C1B18;
-  --color-stone-700: #2D2B26;
-  --color-stone-600: #424039;
-  --color-stone-500: #6B675E;
-  --color-stone-400: #8F8A7F;
+  --color-stone-900: #0A1C15;
+  --color-stone-800: #0E241C;
+  --color-stone-700: #18372C;
+  --color-stone-600: #384A42;
+  --color-stone-500: #5C7066;
+  --color-stone-400: #7A8A82;
   --color-stone-300: #B9B3A8;
   --color-stone-200: #D5D0C6;
 
@@ -99,48 +126,48 @@
     text-align: center;
   }
 
-  /* — Modern Glass UI System — */
+  /* — Modern Deep Green Glass UI System — */
   .glass-panel {
-    background: rgba(255, 255, 255, 0.04);
+    background: rgba(10, 28, 21, 0.72);
     backdrop-filter: blur(16px);
     -webkit-backdrop-filter: blur(16px);
-    border: 1px solid rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(200, 169, 107, 0.16);
   }
 
   .glass-panel-subtle {
-    background: rgba(255, 255, 255, 0.025);
+    background: rgba(7, 21, 16, 0.62);
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
-    border: 1px solid rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(200, 169, 107, 0.10);
   }
 
   .glass-control {
-    background: rgba(255, 255, 255, 0.03);
+    background: rgba(14, 36, 28, 0.65);
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(200, 169, 107, 0.18);
     transition: all 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
   }
 
   .glass-control:hover,
   .glass-control.active {
-    background: rgba(200, 169, 107, 0.08);
-    border-color: rgba(200, 169, 107, 0.35);
+    background: rgba(200, 169, 107, 0.15);
+    border-color: rgba(200, 169, 107, 0.4);
   }
 
   .glass-navbar {
-    background: rgba(8, 9, 8, 0.72);
+    background: rgba(7, 21, 16, 0.78);
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
-    border: 1px solid rgba(255, 255, 255, 0.07);
+    border: 1px solid rgba(200, 169, 107, 0.2);
   }
 
   .glass-action-bar {
-    background: rgba(13, 13, 12, 0.82);
+    background: rgba(10, 28, 21, 0.88);
     backdrop-filter: blur(18px);
     -webkit-backdrop-filter: blur(18px);
-    border: 1px solid rgba(255, 255, 255, 0.09);
-    box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.7);
+    border: 1px solid rgba(200, 169, 107, 0.22);
+    box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.8);
   }
 }
 

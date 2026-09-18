@@ -80,8 +80,8 @@ export const Navbar: React.FC<NavbarProps> = ({
         <div
           className={`pointer-events-auto w-full max-w-6xl rounded-full transition-all duration-500 ease-out flex items-center justify-between px-4 sm:px-7 py-2 sm:py-2.5 border ${
             isScrolled
-              ? 'bg-dark-700/85 backdrop-blur-2xl border-white/[0.16] shadow-[inset_0_1px_0_rgba(255,255,255,0.10),0_12px_40px_-8px_rgba(0,0,0,0.6)]'
-              : 'bg-dark-600/60 backdrop-blur-xl border-white/[0.14] shadow-[inset_0_1px_0_rgba(255,255,255,0.12),0_8px_30px_rgba(0,0,0,0.3)]'
+              ? 'bg-dark-900/85 backdrop-blur-2xl border-champagne-400/20 shadow-[inset_0_1px_0_rgba(200,169,107,0.15),0_12px_40px_-8px_rgba(0,0,0,0.7)]'
+              : 'bg-dark-950/65 backdrop-blur-xl border-champagne-400/15 shadow-[inset_0_1px_0_rgba(200,169,107,0.12),0_8px_30px_rgba(0,0,0,0.4)]'
           }`}
         >
           {/* ─── Official Brand Lockup: Crest + Wordmark ─── */}
